@@ -5,6 +5,9 @@
   	letter-spacing: 10px;
   	text-align: center;
 }
+label,p{
+	font-family: Ubuntu, sans-serif;
+}
 .border-style{
 	background-color: red;
 }
