@@ -20,6 +20,10 @@ input[type='password']{
     background-color: #EEEEEE;
     border-width: 0px;
 }
+.submit-style{
+    width: 100%;
+    margin: 5px 0px;
+}
 @media screen and (max-width: 600px) {
     .register-box {
       width: 95%;
