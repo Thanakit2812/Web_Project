@@ -1,5 +1,5 @@
 <?php
-include("webcs.php");
+include("../database/database.php");
 $name = $_POST["firstname"];
 $surname = $_POST["surname"];
 $password = $_POST["password"];
