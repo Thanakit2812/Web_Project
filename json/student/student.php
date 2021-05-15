@@ -16,10 +16,10 @@ $stmt = $strExe->read($sql);
 $rowCount = $stmt->rowCount();
 
 if ($rowCount > 0) {
-    $data_arr['rs'] = array();
+    $data_arr['student'] = array();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
-        array_push($data_arr["rs"], $row);
+        array_push($data_arr["student"], $row);
     }
     echo json_encode($data_arr);
 } else {

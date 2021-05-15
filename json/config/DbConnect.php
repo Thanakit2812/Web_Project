@@ -2,10 +2,6 @@
 
 class DatabaseConnection
 {
-    private $host = "localhost";
-    private $db_name = "hc_smart_school"; //ชื่อฐานข้อมูล
-    private $username = "root"; //username ของ database
-    private $password = "root1234"; // รหัสผ่านของ database
     public $conn;
     public function getConnection()
     {
