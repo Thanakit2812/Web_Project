@@ -25,7 +25,7 @@ if($password != $re_password){
         $insert_sql = "INSERT INTO student VALUES ('$studentcode','$password','$name','$surname','$address','$district','$subdistrict','$Postal','$province','$tel'); ";
         if(mysqli_query($conn, $insert_sql)) {
             echo "<script>alert('สมัครเสร็จสมบูรณ์')</script>";
-            header("Refresh:0; url=login.php");
+            header("Refresh:0; url=index.html");
         }
         else {
             echo mysqli_error($conn);
