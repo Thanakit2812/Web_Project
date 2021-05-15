@@ -1,6 +1,6 @@
 <?php
 include("webcs.php");
-$name = $_POST["name"];
+$name = $_POST["firstname"];
 $surname = $_POST["surname"];
 $password = $_POST["password"];
 $re_password= $_POST["re_password"];
