@@ -1,0 +1,34 @@
+.register-box{
+	background-color: white;
+	border-radius: 15px;
+	width: 600px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top:15%;
+  	padding: 10px 0px 10px 0px;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.set-input-layout{
+    display: flex;
+    gap: 10px;
+}
+.set-between{
+    margin: 5px 0px;
+}
+input[type='password']{
+    background-color: #EEEEEE;
+    border-width: 0px;
+}
+.submit-style{
+    width: 100%;
+    margin: 5px 0px;
+}
+@media screen and (max-width: 600px) {
+    .register-box {
+      width: 95%;
+    }
+    .set-input-layout{
+        display: block;
+    }
+  }
