@@ -34,6 +34,8 @@ button[type='submit']{
 	font-family: Ubuntu, sans-serif;
 	font-weight: bold;
 	border-width: 0px;
+	margin: 0px 5px 0px 5px;
+	border-radius: 9px;
 	width: 100%;
 	letter-spacing: 5px;
 	background-color : #E67E22 ; 
