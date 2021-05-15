@@ -1,5 +1,5 @@
 <?php
-include("../database/database.php");
+include("../Web_Project/database/database.php");
 $name = $_POST["firstname"];
 $surname = $_POST["surname"];
 $password = $_POST["password"];
