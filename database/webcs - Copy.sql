@@ -42,6 +42,9 @@ CREATE TABLE `course` (
 INSERT INTO `course` (`course_id`, `title`, `credit`, `teachercode`, `status`) VALUES
 ('111111', 'code_do', 3, '6004062616202', 'on'),
 ('222222', 'code_tem', 3, '6004062616172', 'on'),
+('333333', 'code_king', 0, '6004062616105', 'off'),
+('111111', 'code_do', 3, '6004062616202', 'on'),
+('222222', 'code_tem', 3, '6004062616172', 'on'),
 ('333333', 'code_king', 0, '6004062616105', 'off');
 
 -- --------------------------------------------------------
@@ -62,19 +65,10 @@ CREATE TABLE `register` (
 INSERT INTO `register` (`studentcode`, `course_id`) VALUES
 ('6004062616202', '111111'),
 ('6004062616172', '222222'),
+('6004062616105', '333333'),
+('6004062616202', '111111'),
+('6004062616172', '222222'),
 ('6004062616105', '333333');
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `report_counregister`
--- (See below for the actual view)
---
-CREATE TABLE `report_counregister` (
-`name` varchar(50)
-,`code` varchar(50)
-,`num` bigint(21)
-);
 
 -- --------------------------------------------------------
 
