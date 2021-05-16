@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2021 at 02:06 PM
+-- Generation Time: May 16, 2021 at 09:39 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `enroll_in`
+-- Database: `webcs`
 --
 
 -- --------------------------------------------------------
@@ -79,7 +79,7 @@ INSERT INTO `register` (`studentcode`, `course_id`) VALUES
 CREATE TABLE `student` (
   `studentcode` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `fristname` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `subdistrict` varchar(255) NOT NULL,
@@ -93,9 +93,12 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`studentcode`, `password`, `fristname`, `surname`, `address`, `subdistrict`, `district`, `postal`, `province`, `tel`) VALUES
+INSERT INTO `student` (`studentcode`, `password`, `firstname`, `surname`, `address`, `subdistrict`, `district`, `postal`, `province`, `tel`) VALUES
 ('6004062616202', '6004062616202', 'metee', 'poyoi', 'kmutnb', 'kmutnb', 'kmutnb', 10290, 'bankok', '0616243709'),
-('6004062616202', '6004062616202', 'metee', 'poyoi', 'kmutnb', 'kmutnb', 'kmutnb', 10290, 'bankok', '0616243709');
+('6004062616202', '6004062616202', 'metee', 'poyoi', 'kmutnb', 'kmutnb', 'kmutnb', 10290, 'bankok', '0616243709'),
+('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'price', 'ja', 'aaaaaaaaaaaaaaaaaaaaaaaaa', 'sasd', 'asd', 57290, 'chaimeing', '0887771141'),
+('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'price', 'ja', 'aaaaaaaaaaaaaaaaaaaaaaaaa', 'sasd', 'asd', 57290, 'chaimeing', '0887771141'),
+('6004062616177', '80692bff288d4f03068b4df82bff4b5c', 'paaaaaa', 'ja', 'aaaaaaaaaaaa', 'sasd', 'asd', 57290, 'Chaingrai', '0887771141');
 
 -- --------------------------------------------------------
 
@@ -106,7 +109,7 @@ INSERT INTO `student` (`studentcode`, `password`, `fristname`, `surname`, `addre
 CREATE TABLE `teacher` (
   `teachercode` varchar(255) CHARACTER SET armscii8 NOT NULL,
   `password` varchar(255) CHARACTER SET armscii8 NOT NULL,
-  `fristname` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `firstname` varchar(255) CHARACTER SET armscii8 NOT NULL,
   `surname` varchar(255) CHARACTER SET armscii8 NOT NULL,
   `tel` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -115,10 +118,13 @@ CREATE TABLE `teacher` (
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`teachercode`, `password`, `fristname`, `surname`, `tel`) VALUES
+INSERT INTO `teacher` (`teachercode`, `password`, `firstname`, `surname`, `tel`) VALUES
 ('6004062616202', '6004062616202', 'metee', 'poyoi', 616243709),
 ('6004062616202', '6004062616202', 'metee', 'poyoi', 616243709),
-('6004062616202', '6004062616202', 'metee', 'poyoi', 616243709);
+('6004062616202', '6004062616202', 'metee', 'poyoi', 616243709),
+('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'Tem', 'ja', 887771141),
+('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'Tem', 'ja', 887771141),
+('6004062616176', 'f2dfdfc06906f9dce036d34952604678', 'paaaaaa', 'ja', 887771141);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
