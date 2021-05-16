@@ -1,36 +1,21 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <script
-	  src="https://code.jquery.com/jquery-3.6.0.js"
-	  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-	  crossorigin="anonymous">
-	  	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Loading Data from External File using Ajax in jQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("button").click(function(){
+			$("#box").load("test2.html");
+		});
+	});
 	</script>
-  </head>
-  <body>
-  	<div>
-  		<div id="sidebar">
-  			<a href="test2.html">test1</a>
-  		</div>
-  		<div id="content">
-  			<hi>HOME</hi>
-  		</div>
-  	</div>
-  	<script>
-  		$(function(){
-
-  			$('#sidebar').delegate('a','click',function(e){
-  				e.preventDefault();
-  				var link = this.href;
-				alert(link);
-  				$.get(link , function(data){
-  					
-  					$('#content').html(data);
-				
-  				});
-  			});
-  		});
-  	</script>
-  </body>
+</head>
+<body>
+    <div id="box">
+        <h2>Click button to load new content inside DIV box</h2>
+    </div>
+    <button type="button">Load Content</button>
+</body>
 </html>
