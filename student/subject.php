@@ -1,34 +1,3 @@
-<?php
-    session_start();
-    include("../database/database.php");
-    if (!isset($_COOKIE['cookiestudentcode'])&&!isset($_SESSION['studentcode'])) {
-        header('location: login.php');
-    }
-    if (isset($_GET['logout'])) {
-        session_destroy();
-        unset($_SESSION['studentcode']);
-        unset($_COOKIE["cookiestudentcode"]);
-        // setcookie("cookiestudentcode","", time() -3600);
-        header('location: login.php');
-    }
-    if(isset($_SESSION['studentcode'])){
-        $username = $_SESSION['studentcode'];
-        setcookie("cookiestudentcode","$username", time() + 3600);
-    }else{
-        $username = $_COOKIE["cookiestudentcode"];
-        $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
-        setcookie("cookiestudentcode","$username", time() + 3600);
-    }
-
-    $query = "SELECT * FROM register INNER JOIN report_course ON register.course_id =report_course.coursecode WHERE register.studentcode='$username'";
-    $result = mysqli_query($conn, $query);
-
-    $query2 = "SELECT * FROM student WHERE studentcode = '$username'";
-    $result2 = mysqli_query($conn, $query2);
-    $objResult2 = mysqli_fetch_array($result2);
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
