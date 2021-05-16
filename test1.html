@@ -4,13 +4,11 @@
 	<meta charset="utf-8">
 	<title>Loading Data from External File using Ajax in jQuery</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-	$(document).ready(function(){
-		$("button").click(function(){
-			$("#box").load("test2.html");
+	<script> 
+		$(function(){
+		  $("#box").load("/test2.html"); 
 		});
-	});
-	</script>
+		</script> 
 </head>
 <body>
     <div id="box">
