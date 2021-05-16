@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-
     <link rel="stylesheet" type="text/css" href="../teacher/style/webpage.css">
 
     <script>
@@ -30,17 +29,8 @@
 <body>
     <div class="container">
         <div class="tutorial">
-            <h2>Welcome teacher</h2>
-
-            <ul>
-                <li><a href="../teacher/webpage.php">Home</a></li>
-                <li><a href="../teacher/course.php">Teaching subjects</a> </li>
-                <li><a href="../JSON/api.php">Student list</a> </li>
-                <li><a href="../teacher/webpage.php?logout='1'">Log-out</a></li>
-            </ul>
             <div class="slider" style="padding-left: 0px;padding-right:0px">
                 <h3>Student List</h3><br>
-
                 <table id="tb">
                     <tr>
                         <th><b>ID</b></th>
