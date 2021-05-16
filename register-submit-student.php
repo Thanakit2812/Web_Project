@@ -13,14 +13,14 @@ $studentcode = $_POST["studentcode"];
 $province = $_POST["province"];
 if($password != $re_password){
     echo "<script>alert('password ไม่เหมือนกัน ')</script>";
-    header("Refresh:0; url=signup.php");
+    header("Refresh:0; url=register_student.html");
 }else{
     $password = md5($password);
     $sqlcheckuser = "select * from student WHERE studentcode = '$studentcode' LIMIT 1" ;
     $query = mysqli_query($conn, $sqlcheckuser);
     if (mysqli_num_rows($query) == 1) {
         echo "<script>alert('ซ้ำ')</script>";
-        header("Refresh:0; url=signup.php");
+        header("Refresh:0; url=register_student.html");
     }else {
         $insert_sql = "INSERT INTO student VALUES ('$studentcode','$password','$name','$surname','$address','$district','$subdistrict','$Postal','$province','$tel'); ";
         if(mysqli_query($conn, $insert_sql)) {

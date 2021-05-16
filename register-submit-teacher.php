@@ -13,14 +13,14 @@ $teachercode = $_POST["teachercode"];
 
 if($password != $re_password){
     echo "<script>alert('password ไม่เหมือนกัน ')</script>";
-    header("Refresh:0; url=signup.php");
+    header("Refresh:0; url=register_teacher.html");
 }else{
     $password = md5($password);
     $sqlcheckuser = "select * from teacher WHERE teachercode = '$teachercode' LIMIT 1" ;
     $query = mysqli_query($conn, $sqlcheckuser);
     if (mysqli_num_rows($query) == 1) {
         echo "<script>alert('ซ้ำ')</script>";
-        header("Refresh:0; url=signup.php");
+        header("Refresh:0; url=register_teacher.html");
     }else {
         $insert_sql = "INSERT INTO teacher VALUES ('$teachercode','$password','$name','$surname','$tel'); ";
         if(mysqli_query($conn, $insert_sql)) {
