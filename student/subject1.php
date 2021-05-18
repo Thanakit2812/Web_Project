@@ -88,6 +88,7 @@ $objResult2 = mysqli_fetch_array($result2);
             <th width="25%" scope="col">Subject</th>
             <!-- <th width="15%" scope="col">Credit</th> -->
             <th width="35%" scope="col">Teacher</th>
+            <th width="35%" scope="col">Teacher1</th>
           </tr>
         </thead>
         <tbody>

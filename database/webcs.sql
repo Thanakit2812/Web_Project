@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2020 at 11:20 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Generation Time: May 15, 2021 at 02:06 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,9 +40,7 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_id`, `title`, `credit`, `teachercode`, `status`) VALUES
-('111111', 'code_do', 3, '6004062636202', 'off'),
-('222222', 'code_tem', 3, '6004062636172', 'on'),
-('333333', 'code_king', 3, '6004062636105', 'on');
+('111111', 'code_do', 3, '6004062636202', 'on');
 
 -- --------------------------------------------------------
 
@@ -51,8 +49,8 @@ INSERT INTO `course` (`course_id`, `title`, `credit`, `teachercode`, `status`) V
 --
 
 CREATE TABLE `register` (
-  `studentcode` varchar(255) NOT NULL,
-  `course_id` varchar(50) NOT NULL
+  `studentcode` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `course_id` varchar(50) CHARACTER SET armscii8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -60,9 +58,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`studentcode`, `course_id`) VALUES
-('6004062636172', '111111'),
-('6004062636105', '333333'),
-('6004062636202', '222222');
+('6004062636202', '111111');
 
 -- --------------------------------------------------------
 
@@ -85,21 +81,21 @@ CREATE TABLE `report_counregister` (
 CREATE TABLE `student` (
   `studentcode` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
+  `fristname` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `district` varchar(255) NOT NULL,
   `subdistrict` varchar(255) NOT NULL,
+  `district` varchar(255) NOT NULL,
   `postal` int(5) NOT NULL,
   `province` varchar(255) NOT NULL,
-  `tel` varchar(10) NOT NULL
+  `tel` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`studentcode`, `password`, `firstname`, `surname`, `address`, `district`, `subdistrict`, `postal`, `province`, `tel`) VALUES
+INSERT INTO `student` (`studentcode`, `password`, `fristname`, `surname`, `address`, `subdistrict`, `district`, `postal`, `province`, `tel`) VALUES
 ('6004062636202', '6004062636202', 'metee', 'poyoi', 'kmutnb', 'asd', 'fgh', 10290, 'bangkok', '0616243709');
 
 -- --------------------------------------------------------
@@ -109,20 +105,19 @@ INSERT INTO `student` (`studentcode`, `password`, `firstname`, `surname`, `addre
 --
 
 CREATE TABLE `teacher` (
-  `teachercode` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `surname` varchar(255) NOT NULL,
-  `tel` int(10) NOT NULL
+  `teachercode` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `password` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `fristname` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `surname` varchar(255) CHARACTER SET armscii8 NOT NULL,
+  `tel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`teachercode`, `password`, `firstname`, `surname`, `tel`) VALUES
-('6004062636033', '305bf8a31edc9559de750e2d7e72e8a1', 'Kiatpaisan', 'Chantra', 860304195),
-('6004062636035', '0c042eaa418b14d0363f8e36cf014e44', 'Kiatpaisan', 'Chantra', 860304195);
+INSERT INTO `teacher` (`teachercode`, `password`, `fristname`, `surname`, `tel`) VALUES
+('6004062616202', '6004062616202', 'metee', 'poyoi', 0616243709);
 
 -- --------------------------------------------------------
 
@@ -173,12 +168,6 @@ ALTER TABLE `teacher`
 ALTER TABLE `course`
   ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`teachercode`) REFERENCES `teacher` (`teachercode`);
 
---
--- Constraints for table `register`
---
-ALTER TABLE `register`
-  ADD CONSTRAINT `register_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  ADD CONSTRAINT `register_ibfk_2` FOREIGN KEY (`studentcode`) REFERENCES `student` (`studentcode`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
