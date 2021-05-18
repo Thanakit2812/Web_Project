@@ -1,5 +1,24 @@
 <?php
+    session_start();
     include("../database/database.php");
+    if (!isset($_COOKIE['cookiestudentcode'])&&!isset($_SESSION['studentcode'])) {
+      header('location: login.php');
+    }
+    if (isset($_GET['logout'])) {
+      session_destroy();
+      unset($_SESSION['studentcode']);
+      unset($_COOKIE["cookiestudentcode"]);
+      // setcookie("cookiestudentcode","", time() -3600);
+      header('location: login.php');
+    }
+    if(isset($_SESSION['studentcode'])){
+      $username = $_SESSION['studentcode'];
+      setcookie("cookiestudentcode","$username", time() + 3600);
+    }else{
+      $username = $_COOKIE["cookiestudentcode"];
+      $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
+      setcookie("cookiestudentcode","$username", time() + 3600);
+    }
     $query = "SELECT course.course_id ,course.title,course.credit,teacher.firstname,teacher.surname 
     FROM course INNER JOIN teacher ON course.teachercode = teacher.teachercode WHERE status ='on'";
     $result = mysqli_query($conn, $query);
@@ -93,8 +112,8 @@
                     <div align="center"><?php echo $i; ?></div>
                 </td>
                 <td><?php echo $objResult["course_id"]; ?></td>
-                <td><?php echo $objResult["firstname"]; ?></td>
-                <td><?php echo $objResult["firstname"].' '.$objResult["surname"]; ?></td>
+                <td><?php echo $objResult["name"]; ?></td>
+                <td><?php echo $objResult["names"].' '.$objResult["Lname"]; ?></td>
                 <?php $c+=$objResult["credit"];?>
             </tr>
             <?php

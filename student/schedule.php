@@ -1,5 +1,42 @@
 <?php
-    include("../database/database.php"); 
+    session_start();
+    include("../database/database.php");
+    if (!isset($_COOKIE['cookiestudentcode'])&&!isset($_SESSION['studentcode'])) {
+        header('location: login.php');
+    }
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['studentcode']);
+        unset($_COOKIE["cookiestudentcode"]);
+        // setcookie("cookiestudentcode","", time() -3600);
+        header('location: login.php');
+    }
+    if(isset($_SESSION['studentcode'])){
+        $username = $_SESSION['studentcode'];
+        setcookie("cookiestudentcode","$username", time() + 3600);
+    }else{
+        $username = $_COOKIE["cookiestudentcode"];
+        $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
+        setcookie("cookiestudentcode","$username", time() + 3600);
+    }
+    if(isset($_POST['add'])){
+        $code = $_POST["code"];
+        $sqlcheckcourse = "SELECT * FROM register WHERE studentcode='$username' && course_id ='$code'";
+        $resultcheckcourse = mysqli_query($conn, $sqlcheckcourse) or die("Error Query [" . $sqlcheckcourse . "]");
+        if(mysqli_num_rows($resultcheckcourse) != 0){
+           echo "<script>alert('ซ้ำ')</script>";
+        }else{
+            $addcourse = " INSERT INTO register VALUES ('$username','$code');";
+            if(mysqli_query($conn,  $addcourse)) {
+                echo "<script>alert('Success')</script>";
+            }
+            else {
+                echo mysqli_error($conn);
+                echo "<script>alert('failed')</script>";
+            }
+        }
+
+    } 
     $query = "SELECT course.course_id ,course.title,course.credit,teacher.firstname,teacher.surname 
               FROM course INNER JOIN teacher ON course.teachercode = teacher.teachercode WHERE status ='on'";
     $result = mysqli_query($conn, $query);
