@@ -11,59 +11,17 @@
 </head>
 
 <body class="bg">
-    <div class="login-box">
-        <p class="text-login">LOGIN</p>
-        <div class="container">
-
-            <input type="text" name="" class="form-control form-control-lg login-input" placeholder="Username">
-            <br>
-            <input type="text" name="" class="form-control form-control-lg login-input" placeholder="Password">
-            <br>
-            <p>You are?</p>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="student">
-                <label class="form-check-label">Student</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="teacher">
-                <label class="form-check-label text-radio">Teacher</label>
-
-            </div>
-            <br><br>
-            <div class="button-div">
-                <button class="register-button" onclick="clicks()">REGISTER</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="logins()">LOGIN</button>
-            </div>
-        </div>
+    <div style="border-radius: 15px;
+	width: 390px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top:15%;
+  	">
+        <button type="button" class="btn btn-lg" style="background-color: white;"><a href="login.html"> Teacher</a></button>
+        <button type="button" class="btn btn-lg" style="background-color: white;"><a href="login.html">Student</a> </button>
     </div>
-
-    <script>
-        function clicks() {
-            var a = document.getElementsByName('flexRadioDefault')
-
-            a.forEach((flexRadioDefault) => {
-                if (flexRadioDefault.checked) {
-
-                    if (flexRadioDefault.value == "student") {
-                        window.location.href = "register_student.html";
-                    }
-                    if (flexRadioDefault.value == "teacher") {
-                        window.location.href = "register_teacher.html";
-                    }
-
-                }
-            })
-        }
-
-        function logins() {
-            if (flexRadioDefault1) {
-                window.location.href = "";
-            }
-            if (flexRadioDefault2) {
-                window.location.href = "";
-            }
-        }
-    </script>
+    
 </body>
 
 </html>
