@@ -1,5 +1,5 @@
 <?php
-include("../Web_Project/database/database.php");
+include("../database/database.php");
 $name = $_POST["firstname"];
 $surname = $_POST["surname"];
 $password = $_POST["password"];
@@ -25,7 +25,7 @@ if($password != $re_password){
         $insert_sql = "INSERT INTO teacher VALUES ('$teachercode','$password','$name','$surname','$tel'); ";
         if(mysqli_query($conn, $insert_sql)) {
             echo "<script>alert('สมัครเสร็จสมบูรณ์')</script>";
-            header("Refresh:0; url=index.html");
+            header("Refresh:0; url=../index.html");
         }
         else {
             echo mysqli_error($conn);
