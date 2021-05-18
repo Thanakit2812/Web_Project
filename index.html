@@ -22,11 +22,11 @@
             <p>You are?</p>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="student">
-                <label class="form-check-label" >Student</label>
+                <label class="form-check-label">Student</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="teacher">
-                <label class="form-check-label text-radio" >Teacher</label>
+                <label class="form-check-label text-radio">Teacher</label>
 
             </div>
             <br><br>
@@ -34,25 +34,23 @@
                 <button class="register-button" onclick="clicks()">REGISTER</button>
                 <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="logins()">LOGIN</button>
             </div>
-
-
         </div>
     </div>
 
     <script>
         function clicks() {
             var a = document.getElementsByName('flexRadioDefault')
-            
+
             a.forEach((flexRadioDefault) => {
                 if (flexRadioDefault.checked) {
-                    
-                    if(flexRadioDefault.value=="student"){
+
+                    if (flexRadioDefault.value == "student") {
                         window.location.href = "register_student.html";
                     }
-                    if(flexRadioDefault.value=="teacher"){
+                    if (flexRadioDefault.value == "teacher") {
                         window.location.href = "register_teacher.html";
                     }
-                    
+
                 }
             })
         }
