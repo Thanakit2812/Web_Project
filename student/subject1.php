@@ -1,5 +1,24 @@
 <?php
+session_start();
 include("../database/database.php");
+if (!isset($_COOKIE['cookiestudentcode']) && !isset($_SESSION['studentcode'])) {
+  header('location: login_student.html');
+}
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['studentcode']);
+  unset($_COOKIE["cookiestudentcode"]);
+  header('location: login.php');
+}
+if (isset($_SESSION['studentcode'])) {
+  $username = $_SESSION['studentcode'];
+  setcookie("cookiestudentcode", "$username", time() + 3600);
+} else {
+  $username = $_COOKIE["cookiestudentcode"];
+  $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
+  setcookie("cookiestudentcode", "$username", time() + 3600);
+}
+
 $query = "SELECT course.course_id ,course.title,course.credit,teacher.firstName,teacher.surname 
               FROM course INNER JOIN teacher ON course.teachercode = teacher.teachercode WHERE status ='on'";
 $result = mysqli_query($conn, $query);
@@ -73,13 +92,13 @@ $objResult2 = mysqli_fetch_array($result2);
   <div class="container">
     <div style="width:100% ;background-color:Linen; text-align:center;">
       <p>Name
-        <?php echo $objResult2["firstName"] . ' ' . $objResult2["surname"] . ' ID : ' . $objResult2["studentcode"] ?>
+        <?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] . ' ID : ' . $objResult2["studentcode"] ?>
       </p>
       <h3>Class schedule</h3>
       <div>
-                    <input type="text" id="inputsearch" class="form-control" style="width:30%; margin : auto; border-radius: 8px;">
-                    <button type="button" onclick="search()" class="btn btn-primary btn-lg">search</button>
-                </div>
+        <input type="text" id="inputsearch" class="form-control" style="width:30%; margin : auto; border-radius: 8px;">
+        <button type="button" onclick="search()" class="btn btn-primary btn-lg">search</button>
+      </div>
       <table class="table table-bordered" style="width:80% ; margin: auto;">
         <thead>
           <tr>
