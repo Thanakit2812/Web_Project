@@ -47,54 +47,50 @@
 </nav>
   
 <div class="container">
-  <div class="slider">
-    <div style="width:100% ;background-color:Linen; text-align:center; ">
-        <p>Name
-            <?php echo $objResult2["firstname"].' '. $objResult2["surname"].' ID : '. $objResult2["studentcode"]?>
-        </p>
-    </div>
-    <h3>List register class </h3>
-    <table class="table table-bordered" style="width:80% ; margin: auto;">
-        <thead>
-            <tr>
-                <th width="10%" scope="col">#</th>
-                <th width="15%" scope="col">Subject ID</th>
-                <th width="25%" scope="col">Subjects</th>
-                <th width="35%" scope="col">Teacher</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                $i = 1;
-                $c = 0;
-                if (mysqli_num_rows($result) == 0) {
-                  echo '<tr><td colspan="4">ไม่มีการลงทะเบียนไว้</td></tr>';
-                }else{
-                  while ($objResult = mysqli_fetch_array($result)) { ?>
-            <tr>
-                <td>
-                    <div align="center"><?php echo $i; ?></div>
-                </td>
-                <td><?php echo $objResult["coursecode"]; ?></td>
-                <td><?php echo $objResult["name"]; ?></td>
-                <td><?php echo $objResult["firstname"].' '.$objResult["surname"]; ?></td>
-                <?php $c+=$objResult["credit"];?>
-            </tr>
-            <?php $i++;}
-                }
-                ?>
-        </tbody>
-    </table>
-    </br>
-    <h3>ถอนวิชาเรียน</h3>
+                <div style="width:100% ;background-color:Linen; text-align:center; ">
+                    <p>Name
+                        <?php echo $objResult2["firstname"].' '. $objResult2["surname"].' ID : '. $objResult2["studentcode"]?>
+                    </p>
+                </div>
+                <h3>List register class </h3>
+                <table class="table table-bordered" style="width:80% ; margin: auto;">
+                    <thead>
+                        <tr>
+                            <th width="10%" scope="col">#</th>
+                            <th width="15%" scope="col">Subject ID</th>
+                            <th width="25%" scope="col">Subjects</th>
+                            <th width="35%" scope="col">Teacher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $i = 1;
+                            $c = 0;
+                            if (mysqli_num_rows($result) == 0) {
+                              echo '<tr><td colspan="4">ไม่มีการลงทะเบียนไว้</td></tr>';
+                            }else{
+                              while ($objResult = mysqli_fetch_array($result)) { ?>
+                        <tr>
+                            <td>
+                                <div align="center"><?php echo $i; ?></div>
+                            </td>
+                            <td><?php echo $objResult["coursecode"]; ?></td>
+                            <td><?php echo $objResult["name"]; ?></td>
+                            <td><?php echo $objResult["names"].' '.$objResult["Lname"]; ?></td>
+                            <?php $c+=$objResult["credit"];?>
+                        </tr>
+                        <?php $i++;}
+                            }
+                            ?>
+                    </tbody>
+                </table>
+                </br>
+                <h3>ถอนวิชาเรียน</h3>
 
-    <p>รหัสวิชา :</p>
-    <input type="text" name="code" id="code" pattern="[0-9]{6}" placeholder=" xxxxxx " onkeyup="enabled()">
-    <button id="button" name="drop" onclick='confirmDelete()'>submit</button>
-</div>
-  <h3>Collapsible Navbar</h3>
-  <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
-  <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+                <p>รหัสวิชา :</p>
+                <input type="text" name="code" id="code" pattern="[0-9]{6}" placeholder=" xxxxxx " onkeyup="enabled()">
+                <button id="button" name="drop" onclick='confirmDelete()'>submit</button>
+           
 </div>
 
 </body>

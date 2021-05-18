@@ -92,7 +92,7 @@
                 <td>
                     <div align="center"><?php echo $i; ?></div>
                 </td>
-                <td><?php echo $objResult["coursecode"]; ?></td>
+                <td><?php echo $objResult["course_id"]; ?></td>
                 <td><?php echo $objResult["firstname"]; ?></td>
                 <td><?php echo $objResult["firstname"].' '.$objResult["surname"]; ?></td>
                 <?php $c+=$objResult["credit"];?>
