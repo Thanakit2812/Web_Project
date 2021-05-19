@@ -2,14 +2,14 @@
     session_start();
     include("../database/database.php");
     if (!isset($_COOKIE['cookiestudentcode'])&&!isset($_SESSION['studentcode'])) {
-        header('location: login.php');
+        header('location: login_student.php');
     }
     if (isset($_GET['logout'])) {
         session_destroy();
         unset($_SESSION['studentcode']);
         unset($_COOKIE["cookiestudentcode"]);
         // setcookie("cookiestudentcode","", time() -3600);
-        header('location: login.php');
+        header('location: login_student.php');
     }
     if(isset($_SESSION['studentcode'])){
         $username = $_SESSION['studentcode'];
@@ -78,7 +78,7 @@
         <li><a href="drop.php">Drop class</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="# " style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="register.php?logout='1'" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
     <div style="width:100% ;background-color:Linen; text-align:center;">
