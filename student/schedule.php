@@ -87,10 +87,6 @@
       </p>
       <h3>Subjects opened</h3>
 
-      <div>
-          <input type="text" id="inputsearch" class="form-control" style="width:30%; margin : auto; border-radius: 8px;">
-          <button type="button" onclick="search()" class="btn btn-primary btn-lg">search</button>
-      </div>
       <table id=table class="table table-bordered" style="width:80% ; margin: auto;">
           <thead>
               <tr>
@@ -115,7 +111,6 @@
                   </td>
                   <td><?php echo $objResult["course_id"]; ?></td>
                   <td><?php echo $objResult["title"]; ?></td>
-                  <td><?php echo $objResult["credit"]; ?></td>
                   <td><?php echo $objResult["firstname"].' '.$objResult["surname"]; ?></td>
               </tr>
               <?php
