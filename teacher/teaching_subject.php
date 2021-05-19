@@ -109,6 +109,9 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
                 } ?>
             </tbody>
         </table>
+        <div>
+                    <a href="addcourse.php"><button type="submit" class="btn btn-primary">Add Course</button></a>
+                </div>
     </div>
 
 </body>
