@@ -3,14 +3,14 @@
     include("../database/database.php");
     
     if (!isset($_COOKIE['cookiestudentcode'])&&!isset($_SESSION['studentcode'])) {
-      header('location: login.php');
+      header('location: login_student.php');
     }
     if (isset($_GET['logout'])) {
         session_destroy();
         unset($_SESSION['studentcode']);
         unset($_COOKIE["cookiestudentcode"]);
         // setcookie("cookiestudentcode","", time() -3600);
-        header('location: login.php');
+        header('location: login_student.php');
     }
     if(isset($_SESSION['studentcode'])){
         $username = $_SESSION['studentcode'];

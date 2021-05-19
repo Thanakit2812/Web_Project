@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    include("../database/database.php");
+    if (!isset($_COOKIE['cookiestudentcode'])&&!isset($_SESSION['studentcode'])) {
+      header('location: login_student.php');
+  }
+  if (isset($_GET['logout'])) {
+      session_destroy();
+      unset($_SESSION['studentcode']);
+      unset($_COOKIE["cookiestudentcode"]);
+      // setcookie("cookiestudentcode","", time() -3600);
+      header('location: login_student.php');
+  }
+  if(isset($_SESSION['studentcode'])){
+      $username = $_SESSION['studentcode'];
+      setcookie("cookiestudentcode","$username", time() + 3600);
+  }else{
+      $username = $_COOKIE["cookiestudentcode"];
+      $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
+      setcookie("cookiestudentcode","$username", time() + 3600);
+  }
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,8 +50,8 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="schedule.php">Class schedule</a></li>
                     <li><a href="subject.php">Subjects</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="drop.html">Drop class</a></li>
+                    <li><a href="register.php">Register</a></li>
+                    <li><a href="drop.php">Drop class</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="register.php?logout='1'" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
