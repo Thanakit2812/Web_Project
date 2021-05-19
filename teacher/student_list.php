@@ -1,3 +1,24 @@
+<?php
+    session_start();
+    if (!isset($_COOKIE['cookiesteachercode'])&&!isset($_SESSION['teachercode'])) {
+        header('location: login.php');
+      }
+      if (isset($_GET['logout'])) {
+          session_destroy();
+          unset($_SESSION['teachercode']);
+          unset($_COOKIE["cookieteachercode"]);
+          // setcookie("cookiestudentcode","", time() -3600);
+          header('location: login.php');
+      }
+      if(isset($_SESSION['teachercode'])){
+        $teachercode = $_SESSION['teachercode'];
+          setcookie("cookiestudentcode","$teachercode", time() + 3600);
+      }else{
+        $teachercode= $_COOKIE["cookieteachercode"];
+          $_SESSION['teachercode'] = $_COOKIE["cookieteachercode"];
+          setcookie("cookieteachercode","$teachercode", time() + 3600);
+      }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,10 +58,10 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="#">KMUTNB</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
@@ -50,7 +71,8 @@
                     <li><a href="#">Teaching subject</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="# " style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <li><a href="# " style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>

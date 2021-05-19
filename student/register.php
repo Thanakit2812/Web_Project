@@ -27,7 +27,7 @@
          echo "<script>alert('ซ้ำ')</script>";
       }else{
           $addcourse = " INSERT INTO register VALUES ('$username','$code');";
-          if(mysqli_query($conn,  $addcourse)) {2
+          if(mysqli_query($conn,  $addcourse)) {
               echo "<script>alert('Success')</script>";
           }
           else {
