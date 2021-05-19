@@ -1,26 +1,30 @@
-<?php 
-    session_start();
-    include("../database/database.php");
-    if (!isset($_COOKIE['cookiesteachercode'])&&!isset($_SESSION['teachercode'])) {
-        header('location: login_teacher.php');
-      }
-      if (isset($_GET['logout'])) {
-          session_destroy();
-          unset($_SESSION['teachercode']);
-          unset($_COOKIE["cookieteachercode"]);
-          // setcookie("cookiestudentcode","", time() -3600);
-          header('location: login_teacher.php');
-      }
-      if(isset($_SESSION['teachercode'])){
-        $teachercode = $_SESSION['teachercode'];
-          setcookie("cookiestudentcode","$teachercode", time() + 3600);
-      }else{
-        $teachercode= $_COOKIE["cookieteachercode"];
-          $_SESSION['teachercode'] = $_COOKIE["cookieteachercode"];
-          setcookie("cookieteachercode","$teachercode", time() + 3600);
-      }
-?>
+<?php
+session_start();
+include("../database/database.php");
 
+if (!isset($_COOKIE['cookiesteachercode'])&&!isset($_SESSION['teachercode'])) {
+    header('location: login_teacher.php');
+  }
+  if (isset($_GET['logout'])) {
+      session_destroy();
+      unset($_SESSION['teachercode']);
+      unset($_COOKIE["cookieteachercode"]);
+      // setcookie("cookiestudentcode","", time() -3600);
+      header('location: login_teacher.php');
+  }
+  if(isset($_SESSION['teachercode'])){
+    $teachercode = $_SESSION['teachercode'];
+      setcookie("cookiestudentcode","$teachercode", time() + 3600);
+  }else{
+    $teachercode= $_COOKIE["cookieteachercode"];
+      $_SESSION['teachercode'] = $_COOKIE["cookieteachercode"];
+      setcookie("cookieteachercode","$teachercode", time() + 3600);
+  }
+$sqlcoures = "SELECT * FROM `course` WHERE `teachercode` ='$teachercode';";
+$objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures . "]");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
