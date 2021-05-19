@@ -86,20 +86,20 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
                             <div align="center"><?php echo $i; ?></div>
                         </td>
                         <td><?php echo $objResult["course_id"]; ?></td>
-                        <td><a href="show.php?course=<?php echo $objResult["course_id"]; ?>"><?php echo $objResult["title"]; ?></a>
+                        <td><a href="show.php?teaching_subject=<?php echo $objResult["course_id"]; ?>"><?php echo $objResult["title"]; ?></a>
                         </td>
                         <td><?php echo $objResult["credit"]; ?></td>
                         <td><?php
                             if ($objResult["status"] == "on") {
-                                echo '<a href="status.php?course=' . $objResult["course_id"] . '&status=off"> <button type="submit" class="btn btn-success">open</button></a>';
+                                echo '<a href="status.php?teaching_subject=' . $objResult["course_id"] . '&status=off"> <button type="submit" class="btn btn-success">open</button></a>';
                             } else {
-                                echo '<a href="status.php?course=' . $objResult["course_id"] . '&status=on"><button type="submit" class="btn btn-danger" id="myb">close</button></a>';
+                                echo '<a href="status.php?teaching_subject=' . $objResult["course_id"] . '&status=on"><button type="submit" class="btn btn-danger" id="myb">close</button></a>';
                             }
                             ?></td>
                         <td>
-                            <a href="delete.php?course=<?php echo $objResult["course_id"]; ?>"><img src="../icon/trash.svg" style="width:30px; height:30px;" alt="icon "> </a>
-                            /
-                            <a href="updata.php?course=<?php echo $objResult["course_id"]; ?>"><img src="../icon/arrow.svg" style="width:30px; height:30px;" alt="icon"> </a>
+                            <a href="deleteteaching_subject.php?teaching_subject=<?php echo $objResult["course_id"]; ?>"><img src="../icon/trash.svg" style="width:30px; height:30px;" alt="icon "> </a>
+                            
+                            <a href="updateteaching_subject.php?teaching_subject=<?php echo $objResult["course_id"]; ?>"><img src="../icon/arrow.svg" style="width:30px; height:30px;" alt="icon"> </a>
                         </td>
 
                     </tr>
@@ -109,7 +109,7 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
             </tbody>
         </table>
         <div>
-            <a href="addcourse.php"><button type="submit" class="btn btn-primary">Add Course</button></a>
+            <a href="addteaching_subject.php"><button type="submit" class="btn btn-primary">Add Course</button></a>
         </div>
     </div>
 

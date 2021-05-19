@@ -31,13 +31,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>DROP</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    function confirmDelete() {
+        var a = document.getElementById("code").value;
+        if (a == '' || a.length < 6) {
+            return false;
+        } else {
+            var ans = confirm("ต้องการ Drop รหัสวิชา : " + a);
+            if (ans == true) {
+                document.location = "confirmdrop.php?code=" + a;
+            }
+        }
+    }
+    </script>
 </head>
 <body>
 
