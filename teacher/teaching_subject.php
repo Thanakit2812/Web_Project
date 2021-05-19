@@ -23,7 +23,6 @@ if (!isset($_COOKIE['cookiesteachercode'])&&!isset($_SESSION['teachercode'])) {
 $sqlcoures = "SELECT * FROM `course` WHERE `teachercode` ='$teachercode';";
 $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures . "]");
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
