@@ -3,14 +3,14 @@ session_start();
 include("../database/database.php");
 
 if (!isset($_COOKIE['cookiesteachercode']) && !isset($_SESSION['teachercode'])) {
-    header('location: login.php');
+    header('location: login_teacher.php');
 }
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['teachercode']);
     unset($_COOKIE["cookieteachercode"]);
     // setcookie("cookiestudentcode","", time() -3600);
-    header('location: login.php');
+    header('location: login_teacher.php');
 }
 if (isset($_SESSION['teachercode'])) {
     $teachercode = $_SESSION['teachercode'];
@@ -54,11 +54,11 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Student list</a></li>
-                    <li><a href="#">Teaching subject</a></li>
+                    <li><a href="student_list.php">Student list</a></li>
+                    <li><a href="teaching_subject.php">Teaching subject</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="# " style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <li><a href="student_list.php?logout='1' " style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -110,8 +110,8 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
             </tbody>
         </table>
         <div>
-                    <a href="addcourse.php"><button type="submit" class="btn btn-primary">Add Course</button></a>
-                </div>
+            <a href="addcourse.php"><button type="submit" class="btn btn-primary">Add Course</button></a>
+        </div>
     </div>
 
 </body>

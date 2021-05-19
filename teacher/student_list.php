@@ -1,3 +1,25 @@
+<?php
+session_start();
+include("../database/database.php");
+if (!isset($_COOKIE['cookiestudentcode']) && !isset($_SESSION['studentcode'])) {
+    header('location: login_teacher.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['studentcode']);
+    unset($_COOKIE["cookiestudentcode"]);
+    // setcookie("cookiestudentcode","", time() -3600);
+    header('location: login_teacher.php');
+}
+if (isset($_SESSION['studentcode'])) {
+    $username = $_SESSION['studentcode'];
+    setcookie("cookiestudentcode", "$username", time() + 3600);
+} else {
+    $username = $_COOKIE["cookiestudentcode"];
+    $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
+    setcookie("cookiestudentcode", "$username", time() + 3600);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,20 +59,20 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="#">KMUTNB</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Student list</a></li>
-                    <li><a href="#">Teaching subject</a></li>
+                    <li><a href="student_list.php">Student list</a></li>
+                    <li><a href="teaching_subject.php">Teaching subject</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="# " style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <li><a href="student_list.php?logout='1'" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                 </ul>
             </div>
         </div>

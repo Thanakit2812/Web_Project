@@ -16,7 +16,7 @@
             <p>teacher</p>
         </p>
         <div class="container">
-            <form action="checklogin.php" method="POST">
+            <form action="checklogint.php" method="POST">
                 <input type="text" name="username" class="form-control form-control-lg login-input" placeholder="Username">
                 <br>
                 <input type="text" name="password" class="form-control form-control-lg login-input" placeholder="Password">
