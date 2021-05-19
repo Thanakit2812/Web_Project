@@ -50,7 +50,7 @@
         <li><a href="teaching_subject.php">Teaching subject</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="student_list.php?logout='1'" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="home_teacher.php?logout='1'" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>

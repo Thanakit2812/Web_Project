@@ -9,7 +9,8 @@ include("../database/database.php");
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['teachercode'] = $username ;
         setcookie("cookieteachercode","$username", time() + 3600);
-        header("location: home_teacher.php");
+        header("location: student_list.php");
+        
     } else {
         echo "<script>alert('ไม่พบ')</script>";
         header("Refresh:0; url=login_teacher.php"); 
