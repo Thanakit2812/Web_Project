@@ -37,8 +37,7 @@
         }
 
     } 
-    $query = "SELECT course.course_id ,course.title,course.credit,teacher.firstname,teacher.surname 
-              FROM course INNER JOIN teacher ON course.teachercode = teacher.teachercode WHERE status ='on'";
+    $query = "SELECT * FROM register INNER JOIN report_course ON register.course_id =report_course.coursecode WHERE register.studentcode='$username'";
     $result = mysqli_query($conn, $query);
 
     $query2 = "SELECT * FROM student WHERE studentcode = '$username'";
@@ -108,9 +107,9 @@
                   <td>
                       <div align="center"><?php echo $i; ?></div>
                   </td>
-                  <td><?php echo $objResult["course_id"]; ?></td>
-                  <td><?php echo $objResult["title"]; ?></td>
-                  <td><?php echo $objResult["firstname"].' '.$objResult["surname"]; ?></td>
+                  <td><?php echo $objResult["coursecode"]; ?></td>
+                  <td><?php echo $objResult["name"]; ?></td>
+                  <td><?php echo $objResult["names"].' '.$objResult["Lname"]; ?></td>
               </tr>
               <?php
                 $i++;
