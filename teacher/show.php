@@ -17,7 +17,7 @@ if(isset($_GET['page'])) {
 }
 $course = $_GET["teaching_subject"];
 $perpage = 5;
-$sql2 = "SELECT student.studentcode AS studentcode ,student.Name AS Name,student.Surname AS Lname FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course ";
+$sql2 = "SELECT student.studentcode AS studentcode ,student.firstname AS Name,student.surname AS Lname FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course ";
 $query2 = mysqli_query($conn, $sql2);
 $total_record = mysqli_num_rows($query2);
 $total_page = ceil($total_record / $perpage);
@@ -25,7 +25,7 @@ $total_page = ceil($total_record / $perpage);
 $start = ($page - 1) * $perpage;
 
 $teachercode = $_SESSION["teachercode"];
-$sqlcoures = "SELECT student.studentcode AS studentcode ,student.Name AS Name,student.Surname AS Lname FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course  LIMIT $start,$perpage";
+$sqlcoures = "SELECT student.studentcode AS studentcode ,student.firstname AS Name,student.surname AS Lname FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course  LIMIT $start,$perpage";
 $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures . "]");
 
 
