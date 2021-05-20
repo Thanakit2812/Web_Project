@@ -43,7 +43,10 @@
             //console.log(objectData)
             for (let i = 0; i < objectData.student.length; i++) {
                 let TR = document.createElement('tr')
-                TR.innerHTML = "<td>" + objectData.student[i].studentcode + "</td>" + "<td>" + objectData.student[i].firstname + "</td>" + "<td>" + objectData.student[i].surname + "</td>" + "<td>" + objectData.student[i].tel + "</td>" + "<td>" + objectData.student[i].province + "</td>" + "<td>" + objectData.student[i].postal + "</td>"
+                TR.innerHTML = "<td>" + objectData.student[i].studentcode + "</td>" + "<td>" + 
+                objectData.student[i].firstname + "</td>" + "<td>" + objectData.student[i].surname + 
+                "</td>" + "<td>" + objectData.student[i].tel + "</td>" + "<td>" + objectData.student[i].province + 
+                "</td>" + "<td>" + objectData.student[i].postal + "</td>"
                 document.getElementById('tb').appendChild(TR)
             }
         }
