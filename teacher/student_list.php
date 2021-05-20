@@ -9,12 +9,12 @@
           session_destroy();
           unset($_SESSION['teachercode']);
           unset($_COOKIE["cookieteachercode"]);
-          // setcookie("cookiestudentcode","", time() -3600);
+          setcookie("cookieteachercode","", time() -3600);
           header('location: login_teacher.php');
       }
       if(isset($_SESSION['teachercode'])){
         $teachercode = $_SESSION['teachercode'];
-          setcookie("cookiestudentcode","$teachercode", time() + 3600);
+          setcookie("cookieteachercode","$teachercode", time() + 3600);
       }else{
         $teachercode= $_COOKIE["cookieteachercode"];
           $_SESSION['teachercode'] = $_COOKIE["cookieteachercode"];
@@ -43,7 +43,10 @@
             //console.log(objectData)
             for (let i = 0; i < objectData.student.length; i++) {
                 let TR = document.createElement('tr')
-                TR.innerHTML = "<td>" + objectData.student[i].studentcode + "</td>" + "<td>" + objectData.student[i].firstname + "</td>" + "<td>" + objectData.student[i].surname + "</td>" + "<td>" + objectData.student[i].tel + "</td>" + "<td>" + objectData.student[i].province + "</td>" + "<td>" + objectData.student[i].postal + "</td>"
+                TR.innerHTML = "<td>" + objectData.student[i].studentcode + "</td>" + "<td>" + 
+                objectData.student[i].firstname + "</td>" + "<td>" + objectData.student[i].surname + 
+                "</td>" + "<td>" + objectData.student[i].tel + "</td>" + "<td>" + objectData.student[i].province + 
+                "</td>" + "<td>" + objectData.student[i].postal + "</td>"
                 document.getElementById('tb').appendChild(TR)
             }
         }
