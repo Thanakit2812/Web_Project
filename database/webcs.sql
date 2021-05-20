@@ -103,7 +103,7 @@ CREATE TABLE `student` (
   `district` varchar(255) NOT NULL,
   `postal` int(5) NOT NULL,
   `province` varchar(255) NOT NULL,
-  `tel` varchar(10) NOT NULL
+  `tel` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -114,7 +114,6 @@ INSERT INTO `student` (`studentcode`, `password`, `firstname`, `surname`, `addre
 ('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'panu', 'Chai', '22/13', 'payamangrai', 'maiya', 57290, 'Chiang Rai', '0887771140'),
 ('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'panupong', 'chaipanya', '22 m.13', 'Mueang', 'Wiang', 15712, 'Chiang Mai', '0887771141'),
 ('6004062616177', '80692bff288d4f03068b4df82bff4b5c', 'Temna', 'cubjai', '20/11', 'maeng', 'thong', 57291, 'Chaingrai', '0887771143'),
-('60040626162130', 'c65c81442cd50b3d18aeb88e2a7577f8', 'prapinvich', 'hommak', 'asdsd', 'themoo', 'moo', 13002, 'nonburee', '0612589655'),
 ('6004062616202', '19ce41b70e6b57ca4ac9950383064d55', 'metee', 'poyoi', 'kmutnb', 'bangsee', 'vingsavang', 10290, 'ktm', '0616243709'),
 ('6004062616120', 'f05c81660cb060aad40a5621120aee31', 'papan', 'koprason', '20/15', 'deelok', 'dee', 10056, 'bankok', '0683312258'),
 ('6004062616326', '8d3cb75317ebd076ccd90eab09e4a13e', 'chelsae', 'natpapas', 'tansumrid', 'baengsee', 'tansumrid', 10290, 'nonburee', '0687795585'),
@@ -132,7 +131,6 @@ INSERT INTO `student` (`studentcode`, `password`, `firstname`, `surname`, `addre
 ('6004062616580', '71368980ca8f4d279ac15a27abf2de04', 'JP', 'pitchapa', '559/963', 'gusadin', 'jinma', 19875, 'trand', '0879665454'),
 ('6004062616870', '9f69736373f89b7dbb7beee33e2faf9b', 'anan', 'vasinsittichok', '68/8', 'kominna', 'rajuma', 13690, 'samui', '0968874008'),
 ('6004062616398', 'e0cbdc3d42f330f49330d714cba7fb28', 'chakrit', 'disakul', 'appin', 'amadon', 'loko', 10399, 'bankok', '0896687454'),
-('60040626890', '8ee680630ed98f28d6806839bf5cd619', 'ekkaphop', 'first', '77', 'junma', 'juma', 12800, 'bankok', '0854462589'),
 ('6004062616555', 'c671b9a0877791567d422b91f8716894', 'maylee', 'leetaemin', 'susano', 'noso', 'itachi', 10300, 'kyotoo', '0665523301'),
 ('6004062616300', 'b56c9b31fff35f408069f776e61b1863', 'yenrudee', 'petchwong', '123/20', 'kimna', 'matana', 19000, 'bankok', '086654895'),
 ('6004062616900', 'f374b086c8d0f0b0de47cef16bfbe1c1', 'unchaleeporn', 'jamsang', '4568/1', 'teacha', 'teachadum', 18008, 'bankok', '0864478000'),
@@ -153,7 +151,7 @@ CREATE TABLE `teacher` (
   `password` varchar(255) CHARACTER SET armscii8 NOT NULL,
   `firstname` varchar(255) CHARACTER SET armscii8 NOT NULL,
   `surname` varchar(255) CHARACTER SET armscii8 NOT NULL,
-  `tel` int(10) NOT NULL
+  `tel` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -161,31 +159,30 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teachercode`, `password`, `firstname`, `surname`, `tel`) VALUES
-('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'Tem', 'Chailpanya', 887771142),
-('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'Panupong', 'Chailpanya', 887771141),
-('6004062616176', 'f2dfdfc06906f9dce036d34952604678', 'tamtem', 'Chailpanya', 887771143),
-('6004062616177', '80692bff288d4f03068b4df82bff4b5c', 'chaiya', 'katame', 887771149),
-('6004062616130', '5eadbdc651185212086b21c3a38a7882', 'prapinvich', 'hommak', 616243709),
-('6004062616202', '19ce41b70e6b57ca4ac9950383064d55', 'metee', 'poyoi', 616243709),
-('60040062616105', '97a5385eb986c6e866d4eb89271ac553', 'thanakit', 'meangsri', 996586633),
-('6004062616963', '13dbf4b24205d62936b667eb526fdc59', 'meebun', 'kundee', 625998477),
-('6004062616852', '936523605675f02bdf985d30ab85c58e', 'kasin', 'kooko', 687748523),
-('6004062616999', '097baad5aa6a9d11f97d4d245d0cfff5', 'charaem', 'bunmee', 668520014),
-('6004062616000', '11432b0820b3c9d8e50755a2752702e4', 'nuttapong', 'jinbuya', 885203369),
-('6004062616123', '483bf88fc48dbf6670c1fdf0dcb19e17', 'danunai', 'sornjun', 664770025),
-('6004062616300', '483bf88fc48dbf6670c1fdf0dcb19e17', 'danupon', 'onoima', 986588456),
-('6004062616987', '689ff46169067c1a867261da09916a93', 'dechachan', 'jomtong', 876693100),
-('6004062616456', 'e3e56a2f5eccc5a26bc559191a85ea6d', 'tewaruk', 'janyim', 996540099),
-('6004062616321', 'f4c932f154446acf17b0a708417d33d7', 'nutus', 'yangtakoon', 997774500),
-('6004062616258', '4196e06de3461254dd6e001b86c1b778', 'pongsatorn', 'tumpituk', 668453302),
-('6004062616147', '6a715f5bce2dfcef54e834e39b1a1df5', 'passakorn', 'soongnean', 998851110),
-('6004062616200', '0b55b07cbb377e0f9ad24f03c501f1d4', 'yossatorn', 'kunjina', 668779549),
-('6004062616568', 'd2623f63cc99db6e837c2d6f4d6353ef', 'wattanachai', 'jamseang', 668459933),
-('6004062616996', '30f1e3aacf025a8db662059e6ac91d58', 'ponnapa', 'jipata', 668456988),
-('6004062616401', '3c9d9724acffd15368b867b2cdcbce1c', 'sumat', 'puraneng', 668543300),
-('6004062616105', '51032275a5ab99fd8e449e56a07b408a', 'tanakit', 'meangsri', 668756997),
-('6004062616858', '4a723d117a92b2d55ea11f7f1bd1f19e', 'pornpan', 'yangdee', 998870368),
-('6004062616966', '82432d73d826c5ea06c086206185dd14', 'pakjira', 'ounjon', 996584471);
+('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'Tem', 'Chailpanya', '0887771142'),
+('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'Panupong', 'Chailpanya', '0887771141'),
+('6004062616176', 'f2dfdfc06906f9dce036d34952604678', 'tamtem', 'Chailpanya', '0887771143'),
+('6004062616177', '80692bff288d4f03068b4df82bff4b5c', 'chaiya', 'katame', '0887771149'),
+('6004062616130', '5eadbdc651185212086b21c3a38a7882', 'prapinvich', 'hommak', '0616243709'),
+('6004062616202', '19ce41b70e6b57ca4ac9950383064d55', 'metee', 'poyoi', '0616243709'),
+('6004062616963', '13dbf4b24205d62936b667eb526fdc59', 'meebun', 'kundee', '0625998477'),
+('6004062616852', '936523605675f02bdf985d30ab85c58e', 'kasin', 'kooko', '0687748523'),
+('6004062616999', '097baad5aa6a9d11f97d4d245d0cfff5', 'charaem', 'bunmee', '0668520014'),
+('6004062616000', '11432b0820b3c9d8e50755a2752702e4', 'nuttapong', 'jinbuya', '0885203369'),
+('6004062616123', '483bf88fc48dbf6670c1fdf0dcb19e17', 'danunai', 'sornjun', '0664770025'),
+('6004062616300', '483bf88fc48dbf6670c1fdf0dcb19e17', 'danupon', 'onoima', '0986588456'),
+('6004062616987', '689ff46169067c1a867261da09916a93', 'dechachan', 'jomtong', '0876693100'),
+('6004062616456', 'e3e56a2f5eccc5a26bc559191a85ea6d', 'tewaruk', 'janyim', '0996540099'),
+('6004062616321', 'f4c932f154446acf17b0a708417d33d7', 'nutus', 'yangtakoon', '0997774500'),
+('6004062616258', '4196e06de3461254dd6e001b86c1b778', 'pongsatorn', 'tumpituk', '0668453302'),
+('6004062616147', '6a715f5bce2dfcef54e834e39b1a1df5', 'passakorn', 'soongnean', '0998851110'),
+('6004062616200', '0b55b07cbb377e0f9ad24f03c501f1d4', 'yossatorn', 'kunjina', '0668779549'),
+('6004062616568', 'd2623f63cc99db6e837c2d6f4d6353ef', 'wattanachai', 'jamseang', '0668459933'),
+('6004062616996', '30f1e3aacf025a8db662059e6ac91d58', 'ponnapa', 'jipata', '0668456988'),
+('6004062616401', '3c9d9724acffd15368b867b2cdcbce1c', 'sumat', 'puraneng', '0668543300'),
+('6004062616105', '51032275a5ab99fd8e449e56a07b408a', 'tanakit', 'meangsri', '0668756997'),
+('6004062616858', '4a723d117a92b2d55ea11f7f1bd1f19e', 'pornpan', 'yangdee', '0998870368'),
+('6004062616966', '82432d73d826c5ea06c086206185dd14', 'pakjira', 'ounjon', '0996584471');
 
 -- --------------------------------------------------------
 
