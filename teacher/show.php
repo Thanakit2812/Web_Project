@@ -25,10 +25,9 @@ if (isset($_GET['page'])) {
 } else {
     $page = 1;
 }
-
 $course = $_GET["teaching_subject"];
 $perpage = 5;
-$sql2 = "SELECT * FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course ";
+$sql2 = "SELECT student.studentcode AS studentcode ,student.firstname AS Name,student.surname AS Lname FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course ";
 $query2 = mysqli_query($conn, $sql2);
 $total_record = mysqli_num_rows($query2);
 $total_page = ceil($total_record / $perpage);
@@ -36,16 +35,15 @@ $total_page = ceil($total_record / $perpage);
 $start = ($page - 1) * $perpage;
 
 $teachercode = $_SESSION["teachercode"];
-$sqlcoures = "SELECT * FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course  LIMIT $start,$perpage";
+$sqlcoures = "SELECT student.studentcode AS studentcode ,student.firstname AS Name,student.surname AS Lname FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course  LIMIT $start,$perpage";
 $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures . "]");
 
 
 $sql  = "SELECT * FROM course WHERE course_id = '$course'";
-$query2 =  mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
+$query2=  mysqli_query($conn, $sql) or die("Error Query [".$sql."]");
 $result2 = mysqli_fetch_assoc($query2);
 $name = $result2["title"];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,12 +91,6 @@ $name = $result2["title"];
                             <th width="10%" scope="col">#</th>
                             <th width="40%" scope="col">Student Code</th>
                             <th width="50%" scope="col">Name</th>
-                            <th width="50%" scope="col">address</th>
-                            <th width="50%" scope="col">subdistrict</th>
-                            <th width="50%" scope="col">district</th>
-                            <th width="50%" scope="col">postal</th>
-                            <th width="50%" scope="col">province</th>
-                            <th width="50%" scope="col">tel</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -111,13 +103,7 @@ $name = $result2["title"];
                                 <div align="center"><?php echo $i; ?></div>
                             </td>
                             <td><?php echo $objResult["studentcode"]; ?></td>
-                            <td><?php echo $objResult["firstname"].' '.$objResult["surname"]; ?></td>
-                            <td><?php echo $objResult["address"]; ?></td>
-                            <td><?php echo $objResult["subdistrict"]; ?></td>
-                            <td><?php echo $objResult["district"]; ?></td>
-                            <td><?php echo $objResult["postal"]; ?></td>
-                            <td><?php echo $objResult["province"]; ?></td>
-                            <td><?php echo $objResult["tel"]; ?></td>
+                            <td><?php echo $objResult["Name"].' '.$objResult["Lname"]; ?></td>
                         </tr>
                         <?php
                           $i++;
