@@ -48,11 +48,11 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home_teacher.php">KMUTNB</a>
+                <a class="navbar-brand" href="#">KMUTNB</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="home_teacher.php">Home</a></li>
+                    <li class="active"><a href="#">Home</a></li>
                     <li><a href="student_list.php">Student list</a></li>
                     <li><a href="teaching_subject.php">Teaching subject</a></li>
                 </ul>
@@ -97,9 +97,9 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
                             }
                             ?></td>
                         <td>
-                            <a href="deleteteaching_subject.php?teaching_subject=<?php echo $objResult["course_id"]; ?>"><img src="../icon/trash.svg" style="width:30px; height:30px;" alt="icon "> </a>
+                            <a href="deleteteaching_subject.php?teaching_subject=<?php echo $objResult["course_id"]; ?>"><img src="../icon/trash-fill.svg" style="width:25px; height:25px;" alt="icon "> </a>
                             
-                            <a href="updateteaching_subject.php?teaching_subject=<?php echo $objResult["course_id"]; ?>"><img src="../icon/arrow.svg" style="width:30px; height:30px;" alt="icon"> </a>
+                            <a href="updateteaching_subject.php?teaching_subject=<?php echo $objResult["course_id"]; ?>"><img src="../icon/pencil-square.svg" style="width:25px; height:25px;" alt="icon"> </a>
                         </td>
 
                     </tr>
