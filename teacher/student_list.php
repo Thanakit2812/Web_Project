@@ -9,12 +9,12 @@
           session_destroy();
           unset($_SESSION['teachercode']);
           unset($_COOKIE["cookieteachercode"]);
-          // setcookie("cookiestudentcode","", time() -3600);
+          setcookie("cookieteachercode","", time() -3600);
           header('location: login_teacher.php');
       }
       if(isset($_SESSION['teachercode'])){
         $teachercode = $_SESSION['teachercode'];
-          setcookie("cookiestudentcode","$teachercode", time() + 3600);
+          setcookie("cookieteachercode","$teachercode", time() + 3600);
       }else{
         $teachercode= $_COOKIE["cookieteachercode"];
           $_SESSION['teachercode'] = $_COOKIE["cookieteachercode"];

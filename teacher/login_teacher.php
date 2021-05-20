@@ -1,3 +1,8 @@
+<?php
+if (isset($_COOKIE["cookieteachercode"])) {
+    header('location: home_teacher.php');
+}
+?>
 <html>
 
 <head>

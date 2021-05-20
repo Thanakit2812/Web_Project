@@ -9,7 +9,7 @@ if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['studentcode']);
   unset($_COOKIE["cookiestudentcode"]);
-  // setcookie("cookiestudentcode","", time() -3600);
+  setcookie("cookiestudentcode","", time() -3600);
   header('location: login_student.php');
 }
 if (isset($_SESSION['studentcode'])) {
