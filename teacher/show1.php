@@ -40,7 +40,7 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
 
 
 $sql  = "SELECT * FROM course WHERE course_id = '$course'";
-$query2 =  mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
+$query2=  mysqli_query($conn, $sql) or die("Error Query [".$sql."]");
 $result2 = mysqli_fetch_assoc($query2);
 $name = $result2["title"];
 ?>
@@ -55,24 +55,6 @@ $name = $result2["title"];
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <script>
-        async function getDataFromAPI() {
-
-            let response = await fetch('../json/student/student.php')
-            let rawData = await response.text()
-            let objectData = JSON.parse(rawData)
-            let result = document.getElementById('result')
-            //console.log(objectData)
-            for (let i = 0; i < objectData.student.length; i++) {
-                let TR = document.createElement('tr')
-                TR.innerHTML = "<td>" + objectData.student[i].studentcode + "</td>" + "<td>" + objectData.student[i].firstname + "</td>" + "<td>" + objectData.student[i].surname + "</td>" + "<td>" + objectData.student[i].tel + "</td>" + "<td>" + objectData.student[i].province + "</td>" + "<td>" + objectData.student[i].postal + "</td>"
-                document.getElementById('tb').appendChild(TR)
-            }
-        }
-        getDataFromAPI()
-    </script>
-
 </head>
 
 <body>
@@ -101,19 +83,6 @@ $name = $result2["title"];
     </nav>
 
     <div class="container">
-        <h3>Student list</h3>
-        <table class="table" id="tb">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col">SURNAME</th>
-                    <th scope="col">PHONE NUMBER</th>
-                    <th scope="col">PROVNCE</th>
-                    <th scope="col">POSTAL CODE</th>
-                </tr>
-            </thead>
-        </table>
         <div>
                 <h3>Subjects <?php echo $name ?></h3>
                 <table class="table table-striped" id="myTable">
