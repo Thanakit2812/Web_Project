@@ -48,11 +48,11 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">KMUTNB</a>
+                <a class="navbar-brand" href="home_teacher.php">KMUTNB</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="home_teacher.php">Home</a></li>
                     <li><a href="student_list.php">Student list</a></li>
                     <li><a href="teaching_subject.php">Teaching subject</a></li>
                 </ul>
