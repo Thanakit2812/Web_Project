@@ -66,11 +66,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">KMUTNB</a>
+      <a class="navbar-brand" href="home_student.php">KMUTNB</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="home_student.php">Home</a></li>
         <li><a href="schedule.php">Class schedule</a></li>
         <li><a href="subject.php">Subjects</a></li>
         <li><a href="register.php">Register</a></li>
@@ -82,7 +82,7 @@
     </div>
     <div style="width:100% ;background-color:Linen; text-align:center;">
       <p>Name
-          <?php echo $objResult2["firstname"].' '. $objResult2["surname"].' รหัสนักศึกษา : '. $objResult2["studentcode"]?>
+          <?php echo $objResult2["firstname"].' '. $objResult2["surname"].' ID : '. $objResult2["studentcode"]?>
       </p>
       <h3>Subjects opened</h3>
 

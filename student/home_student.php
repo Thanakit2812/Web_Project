@@ -1,25 +1,28 @@
 <?php
-    session_start();
-    include("../database/database.php");
-    if (!isset($_COOKIE['cookiestudentcode'])&&!isset($_SESSION['studentcode'])) {
-      header('location: login_student.php');
-  }
-  if (isset($_GET['logout'])) {
-      session_destroy();
-      unset($_SESSION['studentcode']);
-      unset($_COOKIE["cookiestudentcode"]);
-      // setcookie("cookiestudentcode","", time() -3600);
-      header('location: login_student.php');
-  }
-  if(isset($_SESSION['studentcode'])){
-      $username = $_SESSION['studentcode'];
-      setcookie("cookiestudentcode","$username", time() + 3600);
-  }else{
-      $username = $_COOKIE["cookiestudentcode"];
-      $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
-      setcookie("cookiestudentcode","$username", time() + 3600);
-  }
-  ?>
+session_start();
+include("../database/database.php");
+if (!isset($_COOKIE['cookiestudentcode']) && !isset($_SESSION['studentcode'])) {
+    header('location: login_student.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['studentcode']);
+    unset($_COOKIE["cookiestudentcode"]);
+    // setcookie("cookiestudentcode","", time() -3600);
+    header('location: login_student.php');
+}
+if (isset($_SESSION['studentcode'])) {
+    $username = $_SESSION['studentcode'];
+    setcookie("cookiestudentcode", "$username", time() + 3600);
+} else {
+    $username = $_COOKIE["cookiestudentcode"];
+    $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
+    setcookie("cookiestudentcode", "$username", time() + 3600);
+}
+$query2 = "SELECT * FROM student WHERE studentcode = '$username'";
+$result2 = mysqli_query($conn, $query2);
+$objResult2 = mysqli_fetch_array($result2);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,15 +42,15 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-                <a class="navbar-brand" href="#">KMUTNB</a>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home_student.php">KMUTNB</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="home_student.php">Home</a></li>
                     <li><a href="schedule.php">Class schedule</a></li>
                     <li><a href="subject.php">Subjects</a></li>
                     <li><a href="register.php">Register</a></li>
@@ -61,9 +64,9 @@
     </nav>
 
     <div class="container">
-        <h3>Collapsible Navbar</h3>
-        <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
-            <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+        <h3>ยินดีต้อนรับ</h3>
+        <p><?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] ?></p>
+        <p><?php echo ' ID : ' . $objResult2["studentcode"] ?></p>
     </div>
 
 </body>
