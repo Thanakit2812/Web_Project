@@ -2,7 +2,6 @@
 if (isset($_COOKIE["cookiestudentcode"])) {
     header('location: home_student.php');
 }
-
 ?>
 <html>
 

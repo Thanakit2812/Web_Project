@@ -12,6 +12,7 @@
           setcookie("cookieteachercode","", time() -3600);
           header('location: login_teacher.php');
       }
+      
       if(isset($_SESSION['teachercode'])){
         $teachercode = $_SESSION['teachercode'];
           setcookie("cookieteachercode","$teachercode", time() + 3600);

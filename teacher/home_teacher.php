@@ -3,12 +3,12 @@ session_start();
 include("../database/database.php");
 if (!isset($_COOKIE['cookiesteachercode']) && !isset($_SESSION['teachercode'])) {
   header('location: login_teacher.php');
-}
+} 
 if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['teachercode']);
   unset($_COOKIE["cookieteachercode"]);
-  setcookie("cookieteachercode","", time() -3600);
+  setcookie("cookieteachercode", "", time() - 3600);
   header('location: login_teacher.php');
 }
 if (isset($_SESSION['teachercode'])) {
@@ -62,7 +62,7 @@ $objResult2 = mysqli_fetch_array($result2);
     </div>
   </nav>
   <div class="justify-content-center">
-      <div class="container" style="width:30%">
+    <div class="container" style="width:30%">
       <h3>Welcome</h3>
       <p><?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] ?></p>
       <p><?php echo ' ID : ' . $objResult2["teachercode"] ?></p>
@@ -70,7 +70,7 @@ $objResult2 = mysqli_fetch_array($result2);
     </div>
   </div>
 
-  
+
 </body>
 
 </html>

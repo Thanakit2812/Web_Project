@@ -11,6 +11,7 @@ if (isset($_GET['logout'])) {
     setcookie("cookiestudentcode","", time() -3600);
     header('location: login_student.php');
 }
+
 if (isset($_SESSION['studentcode'])) {
     $username = $_SESSION['studentcode'];
     setcookie("cookiestudentcode", "$username", time() + 3600);
@@ -19,6 +20,7 @@ if (isset($_SESSION['studentcode'])) {
     $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
     setcookie("cookiestudentcode", "$username", time() + 3600);
 }
+
 $query2 = "SELECT * FROM student WHERE studentcode = '$username'";
 $result2 = mysqli_query($conn, $query2);
 $objResult2 = mysqli_fetch_array($result2);
