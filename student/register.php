@@ -31,7 +31,6 @@
               echo "<script>alert('Success')</script>";
           }
           else {
-              echo mysqli_error($conn);
               echo "<script>alert('failed')</script>";
           }
       }
