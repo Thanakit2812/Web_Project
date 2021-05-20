@@ -1,4 +1,5 @@
 <?php
+session_start();
 date_default_timezone_set("Asia/Bangkok");
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -8,10 +9,11 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 include "../config/DbConnect.php";
 include "../config/HCExec.php";
+$teachercode = $_SESSION["teachercode"];
 $db = new DatabaseConnection();
 $strConn = $db->getConnection();
 $strExe = new HCExec($strConn);
-$sql = " SELECT * FROM student ";
+$sql = "SELECT * FROM student JOIN register ON student.studentcode = register.studentcode JOIN course ON course.course_id = register.course_id WHERE course.teachercode=$teachercode GROUP BY student.studentcode";
 $stmt = $strExe->read($sql);
 $rowCount = $stmt->rowCount();
 

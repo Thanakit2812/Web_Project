@@ -25,6 +25,7 @@ if (isset($_GET['page'])) {
 } else {
     $page = 1;
 }
+
 $course = $_GET["teaching_subject"];
 $perpage = 5;
 $sql2 = "SELECT * FROM register INNER JOIN student ON register.studentcode = student.studentcode WHERE register.course_id =$course ";
@@ -44,6 +45,7 @@ $query2 =  mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
 $result2 = mysqli_fetch_assoc($query2);
 $name = $result2["title"];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
