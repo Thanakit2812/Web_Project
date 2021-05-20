@@ -16,16 +16,16 @@
         <div class="container">
             <form action="register-submit-teacher.php" method="POST">
                 <div class="set-input-layout">
-                    <input type="text" name="firstname" id="firstname" class="form-control form-control-lg login-input set-between" placeholder="First name">
-                    <input type="text" name="surname" id="surname" class="form-control form-control-lg login-input set-between" placeholder="Last name">
+                    <input type="text" name="firstname" id="firstname" class="form-control form-control-lg login-input set-between" placeholder="First name" required>
+                    <input type="text" name="surname" id="surname" class="form-control form-control-lg login-input set-between" placeholder="Last name" required>
                 </div>
-                <input type="text" name="teachercode" id="teachercode" class="form-control form-control-lg login-input set-between" placeholder="Teacher Code">
+                <input type="text" name="teachercode" id="teachercode" class="form-control form-control-lg login-input set-between" placeholder="Teacher Code" required>
                 <div class="set-input-layout">
-                    <input type="password" name="password" id="password" class="form-control form-control-lg login-input set-between" placeholder="Password">
-                    <input type="password" name="re_password" class="form-control form-control-lg login-input set-between" placeholder="Repassword">
+                    <input type="password" name="password" id="password" class="form-control form-control-lg login-input set-between" placeholder="Password" required>
+                    <input type="password" name="re_password" class="form-control form-control-lg login-input set-between" placeholder="Repassword" required>
                 </div>
 
-                <input type="text" name="tel" id="tel" class="form-control form-control-lg login-input set-between" placeholder="Tel.">
+                <input type="text" name="tel" id="tel" class="form-control form-control-lg login-input set-between" placeholder="Tel." required>
                 <button type="submit" class="btn btn-primary btn-lg btn-block submit-style">SUBMIT</button>
             </form>
         </div>
