@@ -10,6 +10,8 @@
 }
 #change_text{
     background-color: peru;
+    font-family: Ubuntu, sans-serif;
+    letter-spacing: 3px;
 }
 .button_style{
     background-color: #E67E22;
