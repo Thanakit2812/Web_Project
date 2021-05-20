@@ -124,7 +124,7 @@
                 <p>Subject ID</p>
                 <form action="register.php" method="POST">
                     <input type="text" name="code" pattern="[0-9]{6}" placeholder="xxxxxx">
-                    <button id="button" name="add">submit</button>
+                    <button id="button" name="add"><a>submit</a></button>
                     </br></br>
                     </from>
             </div>

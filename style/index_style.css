@@ -25,12 +25,4 @@
 button:hover{
     background-color: tomato;
 }
-@media screen and (max-width: 600px) {
-    .button_style{
-        width: 80%;
-        margin-bottom:10px ;
-    }
-    .set_layout{
-        display: block;
-    }
-}
+
