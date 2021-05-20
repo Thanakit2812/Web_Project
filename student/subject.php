@@ -40,26 +40,16 @@ $objResult2 = mysqli_fetch_array($result2);
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
   <script>
-    var httpRequest;
-
-    function search() {
-      httpRequest = new XMLHttpRequest();
-      httpRequest.onreadystatechange = showResult;
-      var inputsearch = document.getElementById("inputsearch").value;
-      var url = "search.php?search=" + inputsearch;
-      httpRequest.open("GET", url);
-      httpRequest.send();
-    }
-
-    function showResult() {
-      if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-        document.getElementById("table").innerHTML = httpRequest.responseText;
-      }
-    }
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
   </script>
-
 </head>
 
 <body>
@@ -72,18 +62,18 @@ $objResult2 = mysqli_fetch_array($result2);
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="home_student.php">KMUTNB</a>
+        <a class="navbar-brand" href="#">KMUTNB</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="home_student.php">Home</a></li>
+          <li class="active"><a href="#">Home</a></li>
           <li><a href="schedule.php">Class schedule</a></li>
           <li><a href="subject.php">Subjects</a></li>
           <li><a href="register.php">Register</a></li>
           <li><a href="drop.php">Drop class</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="register.php?logout='1'" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li><a href="# " style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
       </div>
     </div>
@@ -96,7 +86,7 @@ $objResult2 = mysqli_fetch_array($result2);
       </p>
       <h3>Class schedule</h3>
       <div>
-        <input type="text" id="inputsearch" class="form-control" style="width:30%; margin : auto; border-radius: 8px;">
+        <input type="text" id="myInput" class="form-control" style="width:30%; margin : auto; border-radius: 8px;">
         <button type="button" onclick="search()" class="btn btn-primary btn-lg">search</button>
       </div>
       <table class="table table-bordered" style="width:80% ; margin: auto;">
@@ -109,7 +99,7 @@ $objResult2 = mysqli_fetch_array($result2);
             <th width="35%" scope="col">Teacher</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
           <?php
           $i = 1;
           if (mysqli_num_rows($result) == 0) {
