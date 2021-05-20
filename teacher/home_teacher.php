@@ -65,6 +65,7 @@ $objResult2 = mysqli_fetch_array($result2);
     <h3>ยินดีต้อนรับ</h3>
     <p><?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] ?></p>
     <p><?php echo ' ID : ' . $objResult2["teachercode"] ?></p>
+    <p><?php echo ' TEL : ' . $objResult2["tel"] ?></p>
   </div>
 </body>
 
