@@ -87,7 +87,7 @@
       <p>Name
           <?php echo $objResult2["firstname"].' '. $objResult2["surname"].' ID : '. $objResult2["studentcode"]?>
       </p>
-      <h3>Subjects opened</h3>
+      <h3>วิชาที่ลงทะเบียนเรียน</h3>
 
       <table id=table class="table table-bordered thead-dark" style="width:80% ; margin: auto;">
           <thead class="thead-dark">

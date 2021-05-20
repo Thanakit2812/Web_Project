@@ -8,15 +8,7 @@ if(isset($_POST['submit'])){
     $Courseid = mysqli_real_escape_string($conn, $_POST['Courseid']);
     $NameCourse = mysqli_real_escape_string($conn, $_POST['NameCourse']);
     $credit = mysqli_real_escape_string($conn, $_POST['credit']);
-
-    // $Courseid = $_POST["Courseid"];
-    // $NameCourse = $_POST["NameCourse"];
-    // $credit = $credit["credit"];
     $teachercode = $_SESSION['teachercode'];
-    // echo "<script>alert($Courseid)</script>";
-    // echo "<script>alert( $NameCourse)</script>";
-    // echo "<script>alert($credit)</script>";
-    // echo "<script>alert( $teachercode)</script>";
 
   $UPDATE_course = "
     UPDATE course
@@ -56,7 +48,7 @@ if(isset($_POST['submit'])){
     <h3>Updata Course </h3>
     <form action="updateteaching_subject.php" method="POST">
         <p>ID Course</p>
-        <input type="text" name="Courseid" id="Courseid" placeholder="ID Course"
+        <input disabled type="text" name="Courseid" id="Courseid" placeholder="ID Course"
             value="<?php echo $result["course_id"]?>">
         <p>Name Course</p>
         <input type="text" name="NameCourse" id="NameCourse" placeholder="Name Course"

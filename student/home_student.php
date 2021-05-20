@@ -14,7 +14,8 @@ if (isset($_GET['logout'])) {
 if (isset($_SESSION['studentcode'])) {
     $username = $_SESSION['studentcode'];
     setcookie("cookiestudentcode", "$username", time() + 3600);
-} else {
+} 
+if (isset($_COOKIE["cookiestudentcode"])) {
     $username = $_COOKIE["cookiestudentcode"];
     $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
     setcookie("cookiestudentcode", "$username", time() + 3600);
