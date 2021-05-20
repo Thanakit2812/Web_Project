@@ -40,25 +40,6 @@ $objResult2 = mysqli_fetch_array($result2);
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  <script>
-    var httpRequest;
-
-    function search() {
-      httpRequest = new XMLHttpRequest();
-      httpRequest.onreadystatechange = showResult;
-      var inputsearch = document.getElementById("inputsearch").value;
-      var url = "search.php?search=" + inputsearch;
-      httpRequest.open("GET", url);
-      httpRequest.send();
-    }
-
-    function showResult() {
-      if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-        document.getElementById("table").innerHTML = httpRequest.responseText;
-      }
-    }
-  </script>
   <script>
         $(document).ready(function(){
         $("#myInput").on("keyup", function() {
