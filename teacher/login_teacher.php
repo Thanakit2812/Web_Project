@@ -29,6 +29,10 @@
             <div class="button-div">
                 <button class="register-button" onclick="window.location.href='register_teacher.html'">REGISTER</button>
             </div>
+            <br>
+            <div class="button-div">
+                <button class="register-button" onclick="window.location.href='../'">BACK</button>
+            </div>
 
         </div>
     </div>
