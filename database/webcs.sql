@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2021 at 09:39 AM
+-- Generation Time: May 20, 2021 at 03:42 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -40,12 +40,17 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_id`, `title`, `credit`, `teachercode`, `status`) VALUES
-('111111', 'code_do', 3, '6004062616202', 'on'),
-('222222', 'code_tem', 3, '6004062616172', 'on'),
-('333333', 'code_king', 0, '6004062616105', 'off'),
-('111111', 'code_do', 3, '6004062616202', 'on'),
-('222222', 'code_tem', 3, '6004062616172', 'on'),
-('333333', 'code_king', 0, '6004062616105', 'off');
+('123456', 'web', 3, '6004062616172', 'on'),
+('112233', 'computer', 3, '6004062616172', 'on'),
+('223344', 'sci', 3, '6004062616172', 'on'),
+('552114', 'game', 3, '6004062616172', 'on'),
+('555555', 'fun', 3, '6004062616173', 'on'),
+('754454', 'eye', 3, '6004062616172', 'on'),
+('445552', 'pron', 3, '6004062616172', 'on'),
+('668887', 'humman', 3, '6004062616172', 'on'),
+('897756', 'fog', 3, '6004062616172', 'on'),
+('421566', 'kingkong', 3, '6004062616173', 'on'),
+('741256', 'dogger', 3, '6004062616173', 'on');
 
 -- --------------------------------------------------------
 
@@ -63,7 +68,10 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`studentcode`, `course_id`) VALUES
-('6004062616202', '111111');
+('6004062616172', '123456'),
+('6004062616172', '552114'),
+('6004062616172', '555555'),
+('6004062616173', '123456');
 
 -- --------------------------------------------------------
 
@@ -103,11 +111,9 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`studentcode`, `password`, `firstname`, `surname`, `address`, `subdistrict`, `district`, `postal`, `province`, `tel`) VALUES
-('6004062616202', '6004062616202', 'metee', 'poyoi', 'kmutnb', 'kmutnb', 'kmutnb', 10290, 'bankok', '0616243709'),
-('6004062616202', '6004062616202', 'metee', 'poyoi', 'kmutnb', 'kmutnb', 'kmutnb', 10290, 'bankok', '0616243709'),
-('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'price', 'ja', 'aaaaaaaaaaaaaaaaaaaaaaaaa', 'sasd', 'asd', 57290, 'chaimeing', '0887771141'),
-('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'price', 'ja', 'aaaaaaaaaaaaaaaaaaaaaaaaa', 'sasd', 'asd', 57290, 'chaimeing', '0887771141'),
-('6004062616177', '80692bff288d4f03068b4df82bff4b5c', 'paaaaaa', 'ja', 'aaaaaaaaaaaa', 'sasd', 'asd', 57290, 'Chaingrai', '0887771141');
+('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'panu', 'Chai', '22/13', 'payamangrai', 'maiya', 57290, 'Chiang Rai', '0887771140'),
+('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'panupong', 'chaipanya', '22 m.13', 'Mueang', 'Wiang', 15712, 'Chiang Mai', '0887771141'),
+('6004062616177', '80692bff288d4f03068b4df82bff4b5c', 'Temna', 'cubjai', '20/11', 'maeng', 'thong', 57291, 'Chaingrai', '0887771143');
 
 -- --------------------------------------------------------
 
@@ -128,10 +134,10 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teachercode`, `password`, `firstname`, `surname`, `tel`) VALUES
-('', '3335d75c9b80532a9860c898e07865c4', '', '', ''),
-('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'Tem', 'ja', 887771141),
-('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'Tem', 'ja', 887771141),
-('6004062616176', 'f2dfdfc06906f9dce036d34952604678', 'paaaaaa', 'ja', 887771141);
+('6004062616172', '3335d75c9b80532a9860c898e07865c4', 'Tem', 'Chailpanya', 887771142),
+('6004062616173', '16656736d2ccb2a99e577a25ccb64243', 'Panupong', 'Chailpanya', 887771141),
+('6004062616176', 'f2dfdfc06906f9dce036d34952604678', 'tamtem', 'Chailpanya', 887771143),
+('6004062616177', '80692bff288d4f03068b4df82bff4b5c', 'chaiya', 'katame', 887771149);
 
 -- --------------------------------------------------------
 
@@ -140,54 +146,7 @@ INSERT INTO `teacher` (`teachercode`, `password`, `firstname`, `surname`, `tel`)
 --
 DROP TABLE IF EXISTS `report_course`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `report_course`  AS  select `course`.`course_id` AS `coursecode`,`course`.`title` AS `name`,`course`.`credit` AS `credit`,`teacher`.`firstname` AS `names`,`teacher`.`surname` AS `Lname` from (`course` join `teacher` on(`course`.`teachercode` = `teacher`.`teachercode`)) ;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `course`
---
-ALTER TABLE `course`
-  ADD PRIMARY KEY (`course_id`),
-  ADD KEY `teachercode` (`teachercode`);
-
---
--- Indexes for table `register`
---
-ALTER TABLE `register`
-  ADD KEY `course_id` (`course_id`),
-  ADD KEY `studentcode` (`studentcode`);
-
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`studentcode`);
-
---
--- Indexes for table `teacher`
---
-ALTER TABLE `teacher`
-  ADD PRIMARY KEY (`teachercode`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `course`
---
-ALTER TABLE `course`
-  ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`teachercode`) REFERENCES `teacher` (`teachercode`);
-
---
--- Constraints for table `register`
---
-ALTER TABLE `register`
-  ADD CONSTRAINT `register_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  ADD CONSTRAINT `register_ibfk_2` FOREIGN KEY (`studentcode`) REFERENCES `student` (`studentcode`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `report_course`  AS SELECT `course`.`course_id` AS `coursecode`, `course`.`title` AS `name`, `course`.`credit` AS `credit`, `teacher`.`firstname` AS `names`, `teacher`.`surname` AS `Lname` FROM (`course` join `teacher` on(`course`.`teachercode` = `teacher`.`teachercode`)) ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
