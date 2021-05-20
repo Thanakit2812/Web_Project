@@ -7,22 +7,43 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width" />
+        <script>
+            function mOver(obj) {
+              obj.innerHTML = "king mongkut's university of technology north bangkok"
+            }
+            
+            function mOut(obj) {
+              obj.innerHTML = "Welcome"
+            }
+        </script>
     </head>
     <body class="bg">
-        <div class="justify-content-center set_layout">
+        <div class="justify-content-center">
             <div>
-                <button type="button" class="btn-lg button_style">
-                    <a href="teacher/login_teacher.php" class="text_button"> Teacher</a>
-                </button>
+            <div 
+                onmouseover="mOver(this)" 
+                onmouseout="mOut(this)" 
+                id="change_text"
+                style="width:100%;height:20px;padding:0px;text-align: center;font-size: 40px;">
+                Welcome
             </div>
-            
-            <div>
-                <button type="button" class="btn-lg button_style" >
-                    <a href="student/login_student.php" class="text_button">Student</a> 
-                </button> 
             </div>
-            
+            <div class="justify-content-center set_layout">
+                <div>
+                    <button type="button" class="btn-lg button_style">
+                        <a href="teacher/login_teacher.php" class="text_button"> Teacher</a>
+                    </button>
+                </div>
+                
+                <div>
+                    <button type="button" class="btn-lg button_style" >
+                        <a href="student/login_student.php" class="text_button">Student</a> 
+                    </button> 
+                </div>
+                
+            </div>
         </div>
+        
 
     </body>
 
