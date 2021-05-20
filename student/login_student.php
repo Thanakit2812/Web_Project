@@ -23,7 +23,7 @@ if(isset($_COOKIE["cookiestudentcode"])){
             <form action="checklogin.php" method="POST">
                 <input type="text" name="username" id="username" class="form-control form-control-lg login-input" placeholder="Username">
                 <br>
-                <input type="text" name="password" id="password" class="form-control form-control-lg login-input" placeholder="Password">
+                <input type="password" name="password" id="password" class="form-control form-control-lg login-input" placeholder="Password">
                 <br>
                 <br>
                 <div class="button-div">

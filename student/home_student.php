@@ -57,6 +57,7 @@ $objResult2 = mysqli_fetch_array($result2);
                     <li><a href="drop.php">Drop class</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="register.php?logout='1'" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Dark Mode</a></li>
                     <li><a href="register.php?logout='1'" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                 </ul>
             </div>
