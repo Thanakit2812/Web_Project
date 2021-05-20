@@ -63,7 +63,7 @@ $objResult2 = mysqli_fetch_array($result2);
   </nav>
   <div class="justify-content-center">
       <div class="container" style="width:30%; text-align: center;">
-        <h1>Welcome</h3>
+        <h1 id="bgset">Welcome</h3>
         <h3><?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] ?></p>
         <h3><?php echo ' ID : ' . $objResult2["teachercode"] ?></p>
         <h3><?php echo ' TEL : ' . $objResult2["tel"] ?></p>
