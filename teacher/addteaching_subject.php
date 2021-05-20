@@ -73,7 +73,7 @@ if(isset($_POST['submit'])){
     <center>
     <form action="addteaching_subject.php" method="POST" enctype="multipart/form-data">
         <p>ID Course</p>
-        <input type="text" class="form-input" name="Courseid" id="Courseid" placeholder="ID Course " pattern="[0-9]{6}"
+        <input type="text" class="form-input" name="Courseid" id="Courseid" placeholder="ID Course " pattern="[0-9]{6}" maxlength="6"
             onkeyup="send()" required />
         <span id="result"></span>
         <p>Name Course</p>
