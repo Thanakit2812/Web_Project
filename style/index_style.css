@@ -8,6 +8,11 @@
     font-weight: bold;
     
 }
+#change_text{
+    background-color: peru;
+    font-family: Ubuntu, sans-serif;
+    letter-spacing: 3px;
+}
 .button_style{
     background-color: #E67E22;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -25,12 +30,4 @@
 button:hover{
     background-color: tomato;
 }
-@media screen and (max-width: 600px) {
-    .button_style{
-        width: 80%;
-        margin-bottom:10px ;
-    }
-    .set_layout{
-        display: block;
-    }
-}
+

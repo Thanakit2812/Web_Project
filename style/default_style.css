@@ -5,3 +5,18 @@ li,a,p,h3{
 li:hover{
     color: white;
 }
+a:link {
+    color: white;
+  }
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+  color: yellow;
+} 

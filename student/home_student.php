@@ -8,9 +8,10 @@ if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['studentcode']);
     unset($_COOKIE["cookiestudentcode"]);
-    // setcookie("cookiestudentcode","", time() -3600);
+    setcookie("cookiestudentcode","", time() -3600);
     header('location: login_student.php');
 }
+
 if (isset($_SESSION['studentcode'])) {
     $username = $_SESSION['studentcode'];
     setcookie("cookiestudentcode", "$username", time() + 3600);
@@ -20,6 +21,7 @@ if (isset($_COOKIE["cookiestudentcode"])) {
     $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
     setcookie("cookiestudentcode", "$username", time() + 3600);
 }
+
 $query2 = "SELECT * FROM student WHERE studentcode = '$username'";
 $result2 = mysqli_query($conn, $query2);
 $objResult2 = mysqli_fetch_array($result2);
@@ -31,6 +33,7 @@ $objResult2 = mysqli_fetch_array($result2);
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style/default_style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

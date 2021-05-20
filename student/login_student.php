@@ -1,5 +1,5 @@
-<?php 
-if(isset($_COOKIE["cookiestudentcode"])){
+<?php
+if (isset($_COOKIE["cookiestudentcode"])) {
     header('location: home_student.php');
 }
 ?>

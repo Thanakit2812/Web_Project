@@ -8,9 +8,10 @@
         session_destroy();
         unset($_SESSION['studentcode']);
         unset($_COOKIE["cookiestudentcode"]);
-        // setcookie("cookiestudentcode","", time() -3600);
+        setcookie("cookiestudentcode","", time() -3600);
         header('location: login_student.php');
     }
+    
     if(isset($_SESSION['studentcode'])){
         $username = $_SESSION['studentcode'];
         setcookie("cookiestudentcode","$username", time() + 3600);
@@ -87,7 +88,11 @@
       <p>Name
           <?php echo $objResult2["firstname"].' '. $objResult2["surname"].' ID : '. $objResult2["studentcode"]?>
       </p>
+<<<<<<< HEAD
       <h3>วิชาที่ลงทะเบียนเรียน</h3>
+=======
+      <h3>Enrolled subjects</h3>
+>>>>>>> 485774710818b150b42341afdd6fa11902acf15f
 
       <table id=table class="table table-bordered thead-dark" style="width:80% ; margin: auto;">
           <thead class="thead-dark">

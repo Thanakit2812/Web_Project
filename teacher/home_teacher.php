@@ -3,17 +3,17 @@ session_start();
 include("../database/database.php");
 if (!isset($_COOKIE['cookiesteachercode']) && !isset($_SESSION['teachercode'])) {
   header('location: login_teacher.php');
-}
+} 
 if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['teachercode']);
   unset($_COOKIE["cookieteachercode"]);
-  // setcookie("cookiestudentcode","", time() -3600);
+  setcookie("cookieteachercode", "", time() - 3600);
   header('location: login_teacher.php');
 }
 if (isset($_SESSION['teachercode'])) {
   $teachercode = $_SESSION['teachercode'];
-  setcookie("cookiestudentcode", "$teachercode", time() + 3600);
+  setcookie("cookieteachercode", "$teachercode", time() + 3600);
 } else {
   $teachercode = $_COOKIE["cookieteachercode"];
   $_SESSION['teachercode'] = $_COOKIE["cookieteachercode"];
@@ -30,6 +30,7 @@ $objResult2 = mysqli_fetch_array($result2);
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../style/default_style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -60,13 +61,16 @@ $objResult2 = mysqli_fetch_array($result2);
       </div>
     </div>
   </nav>
-
-  <div class="container">
-    <h3>ยินดีต้อนรับ</h3>
-    <p><?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] ?></p>
-    <p><?php echo ' ID : ' . $objResult2["teachercode"] ?></p>
-    <p><?php echo ' TEL : ' . $objResult2["tel"] ?></p>
+  <div class="justify-content-center">
+      <div class="container" style="width:30%; text-align: center;">
+        <h1 id="bgset">Welcome</h3>
+        <h3><?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] ?></p>
+        <h3><?php echo ' ID : ' . $objResult2["teachercode"] ?></p>
+        <h3><?php echo ' TEL : ' . $objResult2["tel"] ?></p>
+      </div>
   </div>
+
+
 </body>
 
 </html>

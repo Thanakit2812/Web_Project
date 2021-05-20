@@ -8,9 +8,10 @@
       session_destroy();
       unset($_SESSION['studentcode']);
       unset($_COOKIE["cookiestudentcode"]);
-      // setcookie("cookiestudentcode","", time() -3600);
+      setcookie("cookiestudentcode","", time() -3600);
       header('location: login_student.php');
   }
+  
   if(isset($_SESSION['studentcode'])){
       $username = $_SESSION['studentcode'];
       setcookie("cookiestudentcode","$username", time() + 3600);
@@ -124,7 +125,7 @@
                 <p>Subject ID</p>
                 <form action="register.php" method="POST">
                     <input type="text" name="code" pattern="[0-9]{6}" placeholder="xxxxxx">
-                    <button id="button" name="add">submit</button>
+                    <button id="button" name="add"><a>submit</a></button>
                     </br></br>
                     </from>
             </div>
