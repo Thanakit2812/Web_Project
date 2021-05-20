@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        async function getDataFromAPI() {
+            let response = await fetch('../json/student/student.php')
+            let rawData = await response.text()
+            let objectData = JSON.parse(rawData)
+            let result = document.getElementById('result')
+            console.log(objectData)
+            for (let i = 0; i < objectData.student.length; i++) {
+                let TR = document.createElement('tr')
+                TR.innerHTML = "<td>" + objectData.student[i].studentcode + "</td>" + "<td>" + objectData.student[i].firstname + "</td>" + "<td>" + objectData.student[i].Surname + "</td>" + "<td>" + objectData.student[i].tel + "</td>" + "<td>" + objectData.student[i].province + "</td>" + "<td>" + objectData.student[i].postal + "</td>"
+                document.getElementById('tb').appendChild(TR)
+            }
+        }
+        getDataFromAPI()
+    </script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse" style="background-color: #FF7800;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand" href="#">KMUTNB</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Student list</a></li>
+                    <li><a href="#">Teaching subject</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="# " style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h3>Teaching subject</h3>
+        <table class="table" id="tb">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Course_ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Credit</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+</html>
