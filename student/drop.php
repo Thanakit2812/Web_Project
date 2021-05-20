@@ -34,6 +34,7 @@
   <title>DROP</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../style/default_style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -52,7 +53,7 @@
     }
     </script>
 </head>
-<body>
+<body style="background-color:#FFF1E2">
 
 <nav class="navbar navbar-inverse" style="background-color: #FF7800;">
   <div class="container-fluid">
@@ -80,7 +81,7 @@
 </nav>
   
 <div class="container">
-                <div style="width:100% ;background-color:Linen; text-align:center; ">
+                <div style="text-align:center; ">
                     <p>Name
                         <?php echo $objResult2["firstname"].' '. $objResult2["surname"].' ID : '. $objResult2["studentcode"]?>
                     </p>

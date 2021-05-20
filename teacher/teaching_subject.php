@@ -38,7 +38,7 @@ $objQuery = mysqli_query($conn, $sqlcoures) or die("Error Query [" . $sqlcoures 
 
 </head>
 
-<body>
+<body style="background-color:#FFF1E2">
 
     <nav class="navbar navbar-inverse" style="background-color: #FF7800;">
         <div class="container-fluid">

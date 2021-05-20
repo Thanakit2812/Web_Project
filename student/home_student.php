@@ -36,7 +36,7 @@ $objResult2 = mysqli_fetch_array($result2);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body style="background-color:#FFF1E2">
 
     <nav class="navbar navbar-inverse" style="background-color: #FF7800;">
         <div class="container-fluid">

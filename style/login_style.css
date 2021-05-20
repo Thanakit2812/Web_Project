@@ -40,7 +40,7 @@ textarea {
 .register-button {
     font-family: Ubuntu, sans-serif;
     color: white;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: bold;
     border-width: 0px;
     margin: 0px;
@@ -48,6 +48,7 @@ textarea {
     width: 100%;
     letter-spacing: 5px;
     background-color: #E67E22;
+    height: 46px;
 }
 
 button[type='submit'] {
@@ -78,7 +79,10 @@ button[type='submit'] {
     opacity: 0.2;
     z-index: -1;
 }
-
+input[type='password']{
+    background-color: #EEEEEE;
+    border-width: 0px;
+}
 @media screen and (max-width: 600px) {
     .login-box {
         width: 95%;

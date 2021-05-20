@@ -25,7 +25,7 @@ if(isset($_COOKIE["cookiestudentcode"])){
                 <br>
                 <input type="text" name="password" id="password" class="form-control form-control-lg login-input" placeholder="Password">
                 <br>
-                <br><br>
+                <br>
                 <div class="button-div">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
                 </div>

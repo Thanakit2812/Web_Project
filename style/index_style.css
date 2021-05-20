@@ -1,0 +1,36 @@
+.text_button {
+    text-decoration: none;
+    color: white;
+    font-family: Ubuntu, sans-serif;
+    letter-spacing: 5px;
+    border-style: solid;
+    border-width: 0px;
+    font-weight: bold;
+    
+}
+.button_style{
+    background-color: #E67E22;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-width: 0px;
+    height: 60px;
+}
+.set_layout{
+    border-radius: 15px;
+
+    margin-top:15%;
+    gap:10px;
+    display: flex;
+    text-align: center;
+}
+button:hover{
+    background-color: tomato;
+}
+@media screen and (max-width: 600px) {
+    .button_style{
+        width: 80%;
+        margin-bottom:10px ;
+    }
+    .set_layout{
+        display: block;
+    }
+}

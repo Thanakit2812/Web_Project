@@ -36,6 +36,7 @@ $objResult2 = mysqli_fetch_array($result2);
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../style/default_style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -52,7 +53,7 @@ $objResult2 = mysqli_fetch_array($result2);
   </script>
 </head>
 
-<body>
+<body style="background-color:#FFF1E2">
 
   <nav class="navbar navbar-inverse" style="background-color: #FF7800;">
     <div class="container-fluid">
@@ -80,15 +81,15 @@ $objResult2 = mysqli_fetch_array($result2);
   </nav>
 
   <div class="container">
-    <div style="width:100% ;background-color:Linen; text-align:center;">
+    <div style="text-align:center;">
       <p>Name
         <?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] . ' ID : ' . $objResult2["studentcode"] ?>
       </p>
       <h3>Class schedule</h3>
       <div>
         <input type="text" id="myInput" class="form-control" style="width:30%; margin : auto; border-radius: 8px;">
-        <button type="button" onclick="search()" class="btn btn-primary btn-lg">search</button>
       </div>
+      <br>
       <table class="table table-bordered" style="width:80% ; margin: auto;">
         <thead>
           <tr>

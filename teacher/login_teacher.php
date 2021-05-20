@@ -12,14 +12,12 @@
 
 <body class="bg">
     <div class="login-box">
-        <p class="text-login">LOGIN
-            <p>teacher</p>
-        </p>
+        <p class="text-login">LOGIN</p>
         <div class="container">
             <form action="checklogint.php" method="POST">
                 <input type="text" name="username" class="form-control form-control-lg login-input" placeholder="Username">
                 <br>
-                <input type="text" name="password" class="form-control form-control-lg login-input" placeholder="Password">
+                <input type="password" name="password" class="form-control form-control-lg login-input" placeholder="Password">
                 <br>
                 <br><br>
                 <div class="button-div">
