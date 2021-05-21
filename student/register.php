@@ -15,10 +15,11 @@
   if(isset($_SESSION['studentcode'])){
       $username = $_SESSION['studentcode'];
       setcookie("cookiestudentcode","$username", time() + 3600);
-  }else{
-      $username = $_COOKIE["cookiestudentcode"];
-      $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
-      setcookie("cookiestudentcode","$username", time() + 3600);
+  }
+  if (isset($_COOKIE["cookiestudentcode"])) {
+    $username = $_COOKIE["cookiestudentcode"];
+    $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
+    setcookie("cookiestudentcode", "$username", time() + 3600);
   }
   if(isset($_POST['add'])){
       $code = $_POST["code"];
