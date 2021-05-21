@@ -30,7 +30,7 @@ $objResult2 = mysqli_fetch_array($result2);
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>ยินดีต้อนรับ</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../style/default_style.css">

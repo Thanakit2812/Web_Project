@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-    <h3>Add Course </h3>
+    <h3>Add Course</h3>
     <center>
     <form action="addteaching_subject.php" method="POST" enctype="multipart/form-data">
         <p>ID Course</p>

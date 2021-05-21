@@ -36,7 +36,7 @@ $objResult2 = mysqli_fetch_array($result2);
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>วิชาที่เปิดสอน</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../style/default_style.css">
@@ -88,7 +88,7 @@ $objResult2 = mysqli_fetch_array($result2);
       <p>Name
         <?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] . ' ID : ' . $objResult2["studentcode"] ?>
       </p>
-      <h3>Class schedule</h3>
+      <h3>วิชาที่เปิดสอน</h3>
       <div>
         <input type="text" id="myInput" class="form-control" style="width:30%; margin : auto; border-radius: 8px;">
       </div>
