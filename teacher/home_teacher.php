@@ -36,9 +36,7 @@ $objResult2 = mysqli_fetch_array($result2);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
 <body style="background-color:#FFF1E2">
-
   <nav class="navbar navbar-inverse" style="background-color: #FF7800;">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -61,16 +59,15 @@ $objResult2 = mysqli_fetch_array($result2);
       </div>
     </div>
   </nav>
-  <div class="justify-content-center">
+  <section>
+    <div class="justify-content-center">
       <div class="container" style="width:30%; text-align: center;">
         <h1 id="bgset">Welcome</h3>
         <h3><?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] ?></p>
         <h3><?php echo ' ID : ' . $objResult2["teachercode"] ?></p>
         <h3><?php echo ' TEL : ' . $objResult2["tel"] ?></p>
       </div>
-  </div>
-
-
+    </div>
+</section>
 </body>
-
 </html>
