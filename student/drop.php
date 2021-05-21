@@ -16,7 +16,8 @@ if (isset($_GET['logout'])) {
 if (isset($_SESSION['studentcode'])) {
   $username = $_SESSION['studentcode'];
   setcookie("cookiestudentcode", "$username", time() + 3600);
-} else {
+} 
+if (isset($_COOKIE["cookiestudentcode"])) {
   $username = $_COOKIE["cookiestudentcode"];
   $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
   setcookie("cookiestudentcode", "$username", time() + 3600);
@@ -33,7 +34,7 @@ $result = mysqli_query($conn, $query);
 <html lang="en">
 
 <head>
-  <title>DROP</title>
+  <title>ถอนวิชาเรียน</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../style/default_style.css">
@@ -89,7 +90,7 @@ $result = mysqli_query($conn, $query);
         <?php echo $objResult2["firstname"] . ' ' . $objResult2["surname"] . ' ID : ' . $objResult2["studentcode"] ?>
       </p>
     </div>
-    <h3>List register class </h3>
+    <h3>ถอนวิชาเรียน</h3>
     <table class="table table-bordered" style="width:80% ; margin: auto;">
       <thead>
         <tr>

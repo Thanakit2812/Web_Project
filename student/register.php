@@ -15,10 +15,11 @@
   if(isset($_SESSION['studentcode'])){
       $username = $_SESSION['studentcode'];
       setcookie("cookiestudentcode","$username", time() + 3600);
-  }else{
-      $username = $_COOKIE["cookiestudentcode"];
-      $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
-      setcookie("cookiestudentcode","$username", time() + 3600);
+  }
+  if (isset($_COOKIE["cookiestudentcode"])) {
+    $username = $_COOKIE["cookiestudentcode"];
+    $_SESSION['studentcode'] = $_COOKIE["cookiestudentcode"];
+    setcookie("cookiestudentcode", "$username", time() + 3600);
   }
   if(isset($_POST['add'])){
       $code = $_POST["code"];
@@ -48,7 +49,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>ลงทะเบียนเรียน</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../style/default_style.css">
@@ -86,7 +87,7 @@
                 <p>Name
                     <?php echo $objResult2["firstname"].' '. $objResult2["surname"].' ID : '. $objResult2["studentcode"]?>
                 </p>
-                <h3>Class schedule</h3>
+                <h3>ลงทะเบียนเรียน</h3>
                 <table class="table table-bordered" style="width:80% ; margin: auto;">
                     <thead>
                         <tr>
