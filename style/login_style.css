@@ -34,8 +34,7 @@ p {
 input[type="text"],
 textarea {
     border-width: 0px;
-    background-color: #EEEEEE;
-    
+    background-color: #EEEEEE; 
 }
 
 .register-button {
